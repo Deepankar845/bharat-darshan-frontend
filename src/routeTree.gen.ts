@@ -14,6 +14,7 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as HeritageRouteImport } from './routes/heritage'
 import { Route as ItineraryRouteImport } from './routes/itinerary'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const ItineraryRoute = ItineraryRouteImport.update({
   path: '/itinerary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,23 @@ export interface FileRoutesById {
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
+  '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary'
+  fullPaths:
+    '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary' | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary'
-  id: '__root__' | '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary'
+  to:
+    '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary' | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/destinations'
+    | '/guide'
+    | '/heritage'
+    | '/itinerary'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +95,7 @@ export interface RootRouteChildren {
   GuideRoute: typeof GuideRoute
   HeritageRoute: typeof HeritageRoute
   ItineraryRoute: typeof ItineraryRoute
+  ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ItineraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +151,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuideRoute: GuideRoute,
   HeritageRoute: HeritageRoute,
   ItineraryRoute: ItineraryRoute,
+  ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
