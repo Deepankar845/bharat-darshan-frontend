@@ -21,7 +21,7 @@ export const Route = createFileRoute("/guide")({
       },
     ],
   }),
-  component: Guide;
+  component: Guide,
 });
 
 type Msg = { role: "user" | "guide"; text: string };
