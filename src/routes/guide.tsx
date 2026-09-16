@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send, Sparkles } from "lucide-react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport, type UIMessage } from "ai";
+import { toast } from "sonner";
 
-import { sampleChat, suggestedPrompts } from "@/lib/data";
+import { suggestedPrompts } from "@/lib/data";
 
 export const Route = createFileRoute("/guide")({
   head: () => ({
@@ -24,24 +27,51 @@ export const Route = createFileRoute("/guide")({
   component: Guide,
 });
 
-type Msg = { role: "user" | "guide"; text: string };
+const greeting: UIMessage = {
+  id: "welcome",
+  role: "assistant",
+  parts: [
+    {
+      type: "text",
+      text: "Namaste! Ask me about routes, seasons, rituals, food or anything else in India — I'll answer like a friend who has been everywhere.",
+    },
+  ],
+};
 
-const demoReply =
-  "Here's a preview answer — this guide is a design demo for now. Once it's connected, it will answer with routes, timings, local etiquette and food picks for exactly this question.";
+function messageText(message: UIMessage) {
+  return message.parts
+    .map((part) => (part.type === "text" ? part.text : ""))
+    .join("")
+    .trim();
+}
 
 function Guide() {
-  const [messages, setMessages] = useState<Msg[]>(sampleChat);
   const [input, setInput] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const { messages, sendMessage, status } = useChat({
+    messages: [greeting],
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    onError: (error) =>
+      toast.error(error.message || "The guide could not answer right now."),
+  });
+
+  const isBusy = status === "submitted" || status === "streaming";
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+  }, [messages, status]);
+
+  useEffect(() => {
+    if (!isBusy) inputRef.current?.focus();
+  }, [isBusy]);
 
   function send(text: string) {
     const q = text.trim();
-    if (!q) return;
-    setMessages((m) => [...m, { role: "user", text: q }]);
+    if (!q || isBusy) return;
     setInput("");
-    setTimeout(
-      () => setMessages((m) => [...m, { role: "guide", text: demoReply }]),
-      500,
-    );
+    void sendMessage({ text: q });
   }
 
   return (
@@ -56,23 +86,34 @@ function Guide() {
       </p>
 
       <div className="mt-8 rounded-3xl border border-border bg-card shadow-lift">
-        <div className="flex max-h-[26rem] flex-col gap-4 overflow-y-auto p-6">
-          {messages.map((m, i) => (
-            <div
-              key={i}
-              className={m.role === "user" ? "flex justify-end" : "flex justify-start"}
-            >
-              <p
-                className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                  m.role === "user"
-                    ? "rounded-br-sm bg-primary text-primary-foreground"
-                    : "rounded-bl-sm bg-secondary text-secondary-foreground"
-                }`}
+        <div ref={scrollRef} className="flex max-h-[26rem] flex-col gap-4 overflow-y-auto p-6">
+          {messages.map((m) => {
+            const text = messageText(m);
+            if (!text) return null;
+            return (
+              <div
+                key={m.id}
+                className={m.role === "user" ? "flex justify-end" : "flex justify-start"}
               >
-                {m.text}
+                <p
+                  className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                    m.role === "user"
+                      ? "rounded-br-sm bg-primary text-primary-foreground"
+                      : "rounded-bl-sm bg-secondary text-secondary-foreground"
+                  }`}
+                >
+                  {text}
+                </p>
+              </div>
+            );
+          })}
+          {status === "submitted" && (
+            <div className="flex justify-start">
+              <p className="animate-pulse rounded-2xl rounded-bl-sm bg-secondary px-4 py-3 text-sm text-muted-foreground">
+                Thinking…
               </p>
             </div>
-          ))}
+          )}
         </div>
 
         <form
@@ -83,6 +124,7 @@ function Guide() {
           className="flex items-center gap-2 border-t border-border p-3"
         >
           <input
+            ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Where should I go in November?"
@@ -91,7 +133,8 @@ function Guide() {
           <button
             type="submit"
             aria-label="Send"
-            className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:-translate-y-0.5"
+            disabled={isBusy}
+            className="flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-50"
           >
             <Send className="size-4" />
           </button>
@@ -104,16 +147,13 @@ function Guide() {
             key={p}
             type="button"
             onClick={() => send(p)}
-            className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+            disabled={isBusy}
+            className="rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground disabled:opacity-50"
           >
             {p}
           </button>
         ))}
       </div>
-
-      <p className="mt-6 text-xs text-muted-foreground">
-        Preview mode: replies are samples while the guide is being connected.
-      </p>
     </div>
   );
 }
