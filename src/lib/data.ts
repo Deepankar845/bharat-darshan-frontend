@@ -2,6 +2,19 @@ import jaipur from "@/assets/dest-jaipur.jpg";
 import varanasi from "@/assets/dest-varanasi.jpg";
 import kerala from "@/assets/dest-kerala.jpg";
 import ladakh from "@/assets/dest-ladakh.jpg";
+import rohtas from "@/assets/dest-rohtas.jpg";
+import kaimur from "@/assets/dest-kaimur.jpg";
+import mundeshwari from "@/assets/dest-mundeshwari.jpg";
+import devSurya from "@/assets/dest-dev-surya.jpg";
+import valmiki from "@/assets/dest-valmiki.jpg";
+import rajgir from "@/assets/dest-rajgir.jpg";
+import nalanda from "@/assets/dest-nalanda.jpg";
+import vaishali from "@/assets/dest-vaishali.jpg";
+import bodhGaya from "@/assets/dest-bodh-gaya.jpg";
+import vishnupad from "@/assets/dest-vishnupad.jpg";
+import patna from "@/assets/dest-patna.jpg";
+import pawapuri from "@/assets/dest-pawapuri.jpg";
+import kesaria from "@/assets/dest-kesaria.jpg";
 
 export type Destination = {
   slug: string;
