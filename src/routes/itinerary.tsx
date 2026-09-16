@@ -31,12 +31,13 @@ let nextId = 1;
 function Itinerary() {
   const [days, setDays] = useState<Stop[][]>([[], [], []]);
   const [active, setActive] = useState(0);
-  const [picked, setPicked] = useState(destinations[0].slug);
+  const [picked, setPicked] = useState(destinations[0]!.slug);
 
   const destination = useMemo(
-    () => destinations.find((d) => d.slug === picked)!,
+    () => destinations.find((d) => d.slug === picked) ?? destinations[0]!,
     [picked],
   );
+
 
   const total = days.reduce((n, d) => n + d.length, 0);
 
