@@ -133,7 +133,7 @@ function Index() {
         </div>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {destinations.map((d) => (
+          {destinations.slice(0, 4).map((d) => (
             <article
               key={d.slug}
               className="group relative overflow-hidden rounded-3xl border border-border"
