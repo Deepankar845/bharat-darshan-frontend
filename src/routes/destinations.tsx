@@ -11,7 +11,7 @@ export const Route = createFileRoute("/destinations")({
       {
         name: "description",
         content:
-          "Curated guides to Jaipur, Varanasi, Kerala, Ladakh and Bihar's treasures — Rohtas, Rajgir, Nalanda, Bodh Gaya and more — with best seasons, trip length and highlights.",
+          "Guides to eight Indian states across north, south, east and west — Rajasthan, Uttar Pradesh, Kerala, Tamil Nadu, Bihar, Odisha, Maharashtra and Gujarat — with best seasons, trip length and highlights.",
       },
       {
         property: "og:title",
@@ -20,14 +20,14 @@ export const Route = createFileRoute("/destinations")({
       {
         property: "og:description",
         content:
-          "Curated guides to Jaipur, Varanasi, Kerala, Ladakh and Bihar's treasures — Rohtas, Rajgir, Nalanda, Bodh Gaya and more — with best seasons, trip length and highlights.",
+          "Guides to eight Indian states across north, south, east and west — Rajasthan, Uttar Pradesh, Kerala, Tamil Nadu, Bihar, Odisha, Maharashtra and Gujarat — with best seasons, trip length and highlights.",
       },
     ],
   }),
   component: Destinations,
 });
 
-const regions = ["All", "North", "East", "South", "Himalaya"] as const;
+const regions = ["All", "North", "South", "East", "West"] as const;
 
 function Destinations() {
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
