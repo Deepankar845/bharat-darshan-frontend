@@ -27,7 +27,7 @@ export const Route = createFileRoute("/destinations")({
   component: Destinations,
 });
 
-const regions = ["All", "North", "East", "South", "Himalaya"] as const;
+const regions = ["All", "North", "South", "East", "West"] as const;
 
 function Destinations() {
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
