@@ -76,7 +76,7 @@ function Index() {
           </h1>
           <p className="rise-in mt-6 max-w-xl text-lg text-background/85">
             Bharat Darshan is your AI travel companion for India — guiding you
-            from Himalayan monasteries to Kerala backwaters, one story at a time.
+            from Rajasthan's forts to Kerala's backwaters, one story at a time.
           </p>
           <div className="rise-in mt-9 flex flex-wrap gap-3">
             <Link
