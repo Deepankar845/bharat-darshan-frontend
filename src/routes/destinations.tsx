@@ -72,6 +72,23 @@ function Destinations() {
         ))}
       </div>
 
+      <div className="mt-4">
+        <label htmlFor="destination-search" className="sr-only">
+          Search states or destinations
+        </label>
+        <div className="relative max-w-md">
+          <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            id="destination-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search a state — Bihar, Kerala, Rajasthan…"
+            className="w-full rounded-full border border-border bg-card py-2.5 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none"
+          />
+        </div>
+      </div>
+
       <div className="mt-10 grid gap-8">
         {list.map((d) => (
           <article
