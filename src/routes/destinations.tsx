@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { CalendarDays, Clock, MapPin } from "lucide-react";
+import { useMemo, useState } from "react";
+import { CalendarDays, Clock, MapPin, Search } from "lucide-react";
 
 import { destinations } from "@/lib/data";
 
@@ -31,8 +31,21 @@ const regions = ["All", "North", "South", "East", "West"] as const;
 
 function Destinations() {
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
-  const list =
-    region === "All" ? destinations : destinations.filter((d) => d.region === region);
+  const [query, setQuery] = useState("");
+
+  const list = useMemo(() => {
+    const byRegion =
+      region === "All" ? destinations : destinations.filter((d) => d.region === region);
+    const q = query.trim().toLowerCase();
+    if (!q) return byRegion;
+    return byRegion.filter(
+      (d) =>
+        d.state.toLowerCase().includes(q) ||
+        d.name.toLowerCase().includes(q) ||
+        d.tagline.toLowerCase().includes(q) ||
+        d.highlights.some((h) => h.toLowerCase().includes(q)),
+    );
+  }, [region, query]);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-16">
@@ -57,6 +70,23 @@ function Destinations() {
             {r}
           </button>
         ))}
+      </div>
+
+      <div className="mt-4">
+        <label htmlFor="destination-search" className="sr-only">
+          Search states or destinations
+        </label>
+        <div className="relative max-w-md">
+          <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            id="destination-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search a state — Bihar, Kerala, Rajasthan…"
+            className="w-full rounded-full border border-border bg-card py-2.5 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none"
+          />
+        </div>
       </div>
 
       <div className="mt-10 grid gap-8">
