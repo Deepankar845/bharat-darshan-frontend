@@ -31,8 +31,21 @@ const regions = ["All", "North", "South", "East", "West"] as const;
 
 function Destinations() {
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
-  const list =
-    region === "All" ? destinations : destinations.filter((d) => d.region === region);
+  const [query, setQuery] = useState("");
+
+  const list = useMemo(() => {
+    const byRegion =
+      region === "All" ? destinations : destinations.filter((d) => d.region === region);
+    const q = query.trim().toLowerCase();
+    if (!q) return byRegion;
+    return byRegion.filter(
+      (d) =>
+        d.state.toLowerCase().includes(q) ||
+        d.name.toLowerCase().includes(q) ||
+        d.tagline.toLowerCase().includes(q) ||
+        d.highlights.some((h) => h.toLowerCase().includes(q)),
+    );
+  }, [region, query]);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-16">
