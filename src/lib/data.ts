@@ -12,6 +12,7 @@ import mahabalipuram from "@/assets/dest-mahabalipuram.jpg";
 import ooty from "@/assets/dest-ooty.jpg";
 import rajgir from "@/assets/dest-rajgir.jpg";
 import nalanda from "@/assets/dest-nalanda.jpg";
+import bodhGaya from "@/assets/dest-bodh-gaya.jpg";
 import puri from "@/assets/dest-puri.jpg";
 import konark from "@/assets/dest-konark.jpg";
 import bhubaneswar from "@/assets/dest-bhubaneswar.jpg";
