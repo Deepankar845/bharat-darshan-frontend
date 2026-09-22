@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Map, Landmark, MessageCircle } from "lucide-react";
 
-import hero from "@/assets/hero-india.jpg";
+import hero from "@/assets/hero-india-montage.jpg";
 import { destinations } from "@/lib/data";
 
 export const Route = createFileRoute("/")({
@@ -60,7 +60,7 @@ function Index() {
       <section className="relative isolate overflow-hidden">
         <img
           src={hero}
-          alt="Sunrise over the Taj Mahal reflected in still water"
+          alt="Panorama of the Taj Mahal, Somnath Temple, Nalanda University and Ramanathaswamy Temple"
           width={1920}
           height={1088}
           className="absolute inset-0 size-full object-cover"
