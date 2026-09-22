@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { CalendarDays, Clock, MapPin } from "lucide-react";
+import { useMemo, useState } from "react";
+import { CalendarDays, Clock, MapPin, Search } from "lucide-react";
 
 import { destinations } from "@/lib/data";
 
