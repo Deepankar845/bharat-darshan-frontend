@@ -4,5 +4,5 @@
       <circle cx="384" cy="384" r="384" />
     </clipPath>
   </defs>
-  <image href="/logo.jpeg" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle)" />
+  <image href="logo.jpeg" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#circle)" />
 </svg>
