@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Compass } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
@@ -17,9 +17,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link to="/" className="group flex items-center gap-2">
-          <span className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-300 group-hover:rotate-90">
-            <Compass className="size-5" />
-          </span>
+          <img
+            src="/logo.jpeg"
+            alt="Bharat Darshan"
+            className="size-11 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
+          />
           <span className="font-display text-xl leading-none tracking-tight">
             Bharat Darshan
           </span>
