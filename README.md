@@ -57,3 +57,24 @@ To preview the production build locally:
 ```sh
 npm run preview
 ```
+
+## Supabase Backend
+
+The Supabase client is configured in `src/lib/supabase.ts`. The initial database
+schema, authentication profile trigger, indexes, and Row Level Security policies
+are in:
+
+```text
+supabase/migrations/0001_initial_schema.sql
+```
+
+To apply the schema:
+
+1. Open the Supabase project dashboard.
+2. Open **SQL Editor** and create a new query.
+3. Copy the contents of the migration file into the query.
+4. Click **Run**.
+5. Confirm the tables and policies under **Table Editor** and **Authentication**.
+
+The publishable key can be used by the browser client. Never put a Supabase
+`service_role` key in `.env.local` or frontend code.
