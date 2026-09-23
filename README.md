@@ -4,13 +4,50 @@ Build the frontend for Bharat Darshan, an AI-based tour guide app for exploring 
 
 **Live app**: https://bharat-darshan-frontend.lovable.app
 
-## Development
+## Run Locally
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Prerequisites
+
+- Node.js 18 or newer
+- npm
+
+### Setup
 
 ```sh
 git clone <this-repository-url>
-cd <repository-name>
-npm i
+cd bharat-darshan-frontend
+npm install
+```
+
+### Start the development server
+
+```sh
 npm run dev
+```
+
+Open the local URL shown in the terminal. The project normally runs at:
+
+```text
+http://localhost:8080
+```
+
+### Windows PowerShell
+
+If PowerShell blocks `npm.ps1`, run the npm commands through Command Prompt:
+
+```powershell
+cmd /c npm install
+cmd /c npm run dev
+```
+
+### Production build
+
+```sh
+npm run build
+```
+
+To preview the production build locally:
+
+```sh
+npm run preview
 ```
