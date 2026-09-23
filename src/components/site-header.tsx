@@ -18,7 +18,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link to="/" className="group flex items-center gap-2">
           <img
-            src="/logo.jpeg"
+            src="/logo-circle.svg"
             alt="Bharat Darshan"
             className="size-11 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
           />
