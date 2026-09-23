@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Map, Landmark, MessageCircle } from "lucide-react";
+import { ArrowRight, Sparkles, Map, Landmark, MessageCircle, Navigation, ExternalLink } from "lucide-react";
 
 import hero from "@/assets/hero-india-montage.jpg";
 import { destinations } from "@/lib/data";
@@ -134,9 +134,12 @@ function Index() {
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           {destinations.slice(0, 4).map((d) => (
-            <article
+            <Link
               key={d.slug}
-              className="group relative overflow-hidden rounded-3xl border border-border"
+              to="/destinations"
+              search={{ q: d.name }}
+              hash={d.slug}
+              className="group relative block overflow-hidden rounded-3xl border border-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
             >
               <img
                 src={d.image}
@@ -146,19 +149,38 @@ function Index() {
                 height={768}
                 className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-gold">
-                  {d.state}
-                </p>
-                <h3 className="mt-1 font-display text-3xl text-background">
-                  {d.name}
-                </h3>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs uppercase tracking-[0.2em] text-gold">
+                    {d.state}
+                  </p>
+                  <a
+                    href={d.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 rounded-full bg-background/80 px-2.5 py-1 font-mono text-[11px] text-background backdrop-blur-md transition-colors hover:bg-background hover:text-foreground"
+                    title="Open exact coordinates in Google Maps"
+                  >
+                    <Navigation className="size-3 text-gold" />
+                    {d.coordinates.lat.toFixed(2)}°N, {d.coordinates.lng.toFixed(2)}°E
+                    <ExternalLink className="size-2.5 opacity-70" />
+                  </a>
+                </div>
+                <div className="mt-1 flex items-center justify-between">
+                  <h3 className="font-display text-3xl text-background transition-colors group-hover:text-gold">
+                    {d.name}
+                  </h3>
+                  <span className="flex items-center gap-1 text-xs font-medium text-background/80 opacity-0 transition-opacity group-hover:opacity-100">
+                    Explore guide <ArrowRight className="size-3.5" />
+                  </span>
+                </div>
                 <p className="mt-1 max-w-sm text-sm text-background/80">
                   {d.tagline}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

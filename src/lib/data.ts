@@ -10,9 +10,19 @@ import kochi from "@/assets/dest-kochi.jpg";
 import madurai from "@/assets/dest-madurai.jpg";
 import mahabalipuram from "@/assets/dest-mahabalipuram.jpg";
 import ooty from "@/assets/dest-ooty.jpg";
+import rohtas from "@/assets/dest-rohtas.jpg";
+import kaimur from "@/assets/dest-kaimur.jpg";
+import mundeshwari from "@/assets/dest-mundeshwari.jpg";
+import devSurya from "@/assets/dest-dev-surya.jpg";
+import valmiki from "@/assets/dest-valmiki.jpg";
 import rajgir from "@/assets/dest-rajgir.jpg";
 import nalanda from "@/assets/dest-nalanda.jpg";
+import vaishali from "@/assets/dest-vaishali.jpg";
 import bodhGaya from "@/assets/dest-bodh-gaya.jpg";
+import vishnupad from "@/assets/dest-vishnupad.jpg";
+import patna from "@/assets/dest-patna.jpg";
+import pawapuri from "@/assets/dest-pawapuri.jpg";
+import kesaria from "@/assets/dest-kesaria.jpg";
 import puri from "@/assets/dest-puri.jpg";
 import konark from "@/assets/dest-konark.jpg";
 import bhubaneswar from "@/assets/dest-bhubaneswar.jpg";
@@ -24,6 +34,11 @@ import kutch from "@/assets/dest-kutch.jpg";
 import gir from "@/assets/dest-gir.jpg";
 import dwarka from "@/assets/dest-dwarka.jpg";
 
+export type Coordinates = {
+  lat: number;
+  lng: number;
+};
+
 export type Destination = {
   slug: string;
   name: string;
@@ -34,10 +49,15 @@ export type Destination = {
   days: string;
   bestTime: string;
   highlights: string[];
+  coordinates: Coordinates;
+  nearestAirport: string;
+  nearestRailway: string;
+  elevation: string;
+  description: string;
+  mapUrl: string;
 };
 
 export const destinations: Destination[] = [
-  // ─── NORTH · Rajasthan ───
   {
     slug: "jaipur",
     name: "Jaipur",
@@ -48,6 +68,15 @@ export const destinations: Destination[] = [
     days: "3–4 days",
     bestTime: "October – March",
     highlights: ["Hawa Mahal", "Amber Fort", "Jantar Mantar", "Johari Bazaar"],
+    coordinates: {
+      lat: 26.91546,
+      lng: 75.81898,
+    },
+    nearestAirport: "Jaipur International Airport (JAI), 12 km",
+    nearestRailway: "Jaipur Junction (JP)",
+    elevation: "431 m (1,414 ft)",
+    description: "Jaipur is the capital and the largest city of the north-western Indian state of Rajasthan. As of 2011, the city had a population of 3.1 million, making it the tenth most populous city in the country. Located 268\u00a0km from the national capital New Delhi, Jaipur is also known as the Pink City due to the dominant colour scheme of its buildings in the old city.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=26.91546,75.81898",
   },
   {
     slug: "udaipur",
@@ -59,6 +88,15 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "October – March",
     highlights: ["City Palace", "Lake Pichola boat ride", "Jagdish Temple", "Saheliyon ki Bari"],
+    coordinates: {
+      lat: 24.57872,
+      lng: 73.68626,
+    },
+    nearestAirport: "Maharana Pratap Airport (UDR), 22 km",
+    nearestRailway: "Udaipur City Railway Station (UDZ)",
+    elevation: "598 m (1,962 ft)",
+    description: "Udaipur is a city in the north-western Indian state of Rajasthan, about 415\u00a0km (258\u00a0mi) south of the state capital Jaipur. It serves as the administrative headquarters of Udaipur district. It is the historic capital of the kingdom of Mewar in the former Rajputana Agency. It was founded in 1559 by Udai Singh II of the Sisodia clan of Rajputs, when he shifted his capital from the city of Chittorgarh to Udaipur after Chittorgarh was besieged by Akbar. It remained as the capital city till 1818 when Mewar became a British princely state, and thereafter the Mewar province became a part of Rajasthan when India gained independence in 1947. It is also known as the City of Lakes, as it is surrounded by five major artificial lakes.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.57872,73.68626",
   },
   {
     slug: "jaisalmer",
@@ -70,9 +108,16 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "November – February",
     highlights: ["Sonar Quila", "Sam sand dunes", "Patwon ki Haveli", "Gadisar Lake"],
+    coordinates: {
+      lat: 27.02642,
+      lng: 70.77751,
+    },
+    nearestAirport: "Jaisalmer Airport (JSA), 15 km",
+    nearestRailway: "Jaisalmer Railway Station (JSM)",
+    elevation: "225 m (738 ft)",
+    description: "Jaisalmer, nicknamed The Golden City, is a city in the north-western Indian state of Rajasthan, located 575 kilometres (357\u00a0mi) west of the state capital Jaipur, in the heart of the Thar Desert. It serves as the administrative headquarters of Jaisalmer district. Jaisalmer is a former medieval trading center and the historic capital of the kingdom of Jaisalmer, founded in 1156 by Rawal Jaisal of the Bhati clan of Rajputs. Jaisalmer stands on a ridge of yellowish sandstone and is crowned by the World Heritage Site, Jaisalmer Fort, a sprawling hilltop citadel supported by 99 bastions. This fort contains a royal palace and several ornate Jain temples. Many of the houses and temples of both the fort and of the town below are built of finely sculptured yellow sandstone. The town has a population, including the residents of the fort, of about 78,000. Jaisalmer ranked 9th on Booking.com's Top 10 The Most Welcoming cities in the world. It is the only Indian city on the list.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=27.02642,70.77751",
   },
-
-  // ─── NORTH · Uttar Pradesh ───
   {
     slug: "varanasi",
     name: "Varanasi",
@@ -83,6 +128,15 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "November – February",
     highlights: ["Dashashwamedh Ghat", "Ganga Aarti", "Sarnath", "Silk weavers"],
+    coordinates: {
+      lat: 25.33565,
+      lng: 83.00763,
+    },
+    nearestAirport: "Lal Bahadur Shastri International Airport (VNS), 25 km",
+    nearestRailway: "Varanasi Junction (BSB) / Banaras (BSBS)",
+    elevation: "80 m (262 ft)",
+    description: "Varanasi, or Kashi, is a city on the Ganges river in northern India that has a central place in the traditions of pilgrimage, death, and mourning in the Hindu world. The city also has a syncretic tradition of Islamic artisanship that underpins its religious tourism. Located in the middle-Ganges valley in the southeastern part of the state of Uttar Pradesh, Varanasi lies on the left bank of the river. It is 692 kilometres (430\u00a0mi) to the southeast of India's capital New Delhi and 320 kilometres (200\u00a0mi) to the southeast of the state capital, Lucknow. It lies 121 kilometres (75\u00a0mi) downstream of Prayagraj, where the confluence with the Yamuna river is another major Hindu pilgrimage site.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.33565,83.00763",
   },
   {
     slug: "agra",
@@ -94,6 +148,15 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "October – March",
     highlights: ["Taj Mahal", "Agra Fort", "Mehtab Bagh", "Fatehpur Sikri"],
+    coordinates: {
+      lat: 27.17526,
+      lng: 78.00982,
+    },
+    nearestAirport: "Agra Airport / Kheria (AGR), 8 km",
+    nearestRailway: "Agra Cantt (AGC)",
+    elevation: "171 m (561 ft)",
+    description: "Agra is a city on the banks of the Yamuna river in the Indian state of Uttar Pradesh. It is a part of Western Uttar Pradesh, about 230 kilometres (140\u00a0mi) south-east of the national capital Delhi and 330\u00a0km west of the state capital Lucknow. It is also part of the Braj region. With a population of roughly 1.6 million, Agra is the fourth-most populous city in Uttar Pradesh and twenty-third most populous city in India.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=27.17526,78.00982",
   },
   {
     slug: "lucknow",
@@ -105,9 +168,16 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Bara Imambara", "Bhool Bhulaiyaa", "Rumi Darwaza", "Chikankari bazaars"],
+    coordinates: {
+      lat: 26.8381,
+      lng: 80.9346,
+    },
+    nearestAirport: "Chaudhary Charan Singh International Airport (LKO), 14 km",
+    nearestRailway: "Lucknow Charbagh (LKO / LJN)",
+    elevation: "123 m (404 ft)",
+    description: "Lucknow is a metropolis and the second largest city of the Indian state of Uttar Pradesh where it serves as the capital and the administrative headquarters of the eponymous district and division. The city had a population of 2.8 million according to the 2011 census, making it the eleventh most populous city and the twelfth-most populous urban agglomeration of India. It is an important centre of education, commerce, aerospace, finance, pharmaceuticals, information technology, design, gastronomy, literature, arts, tourism, music, and poetry. Lucknow, along with Agra and Varanasi, forms the backbone of the Uttar Pradesh Heritage Arc.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=26.8381,80.9346",
   },
-
-  // ─── SOUTH · Kerala ───
   {
     slug: "kerala",
     name: "Alleppey",
@@ -118,6 +188,15 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "September – March",
     highlights: ["Backwater cruise", "Kumarakom", "Kathakali evening", "Sadya feast"],
+    coordinates: {
+      lat: 9.50034,
+      lng: 76.41234,
+    },
+    nearestAirport: "Cochin International Airport (COK), 82 km",
+    nearestRailway: "Alappuzha Railway Station (ALLP)",
+    elevation: "1 m (3 ft)",
+    description: "Alappuzha or Alleppey is a city and municipality on the Laccadive Sea in the southern Indian state of Kerala. It is the headquarters of Alappuzha district, located about 62\u00a0km (39\u00a0mi) south of the commercial city of Kochi and 152\u00a0km (94.4\u00a0mi) northwest of the state capital Thiruvananthapuram. As per the 2011 Indian census, Alappuzha has a population of 240,991 people, and a population density of 3,675/km2 (9,520/sq\u00a0mi).",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=9.50034,76.41234",
   },
   {
     slug: "munnar",
@@ -129,6 +208,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "September – March",
     highlights: ["Tea estates", "Eravikulam park", "Top Station view", "Mattupetty dam"],
+    coordinates: {
+      lat: 10.087,
+      lng: 77.06009,
+    },
+    nearestAirport: "Cochin International Airport (COK), 110 km",
+    nearestRailway: "Aluva (AWY) 110 km / Ernakulam (ERS) 130 km",
+    elevation: "1,532 m (5,026 ft)",
+    description: "Munnar is a town located in the Idukki district of the southwestern Indian state of Kerala. Munnar is situated at around 1,600 metres (5,200\u00a0ft) above mean sea level, in the Western Ghats mountain range. This ancient plantation settlement, dominated by its tea industry, is also a growing modern hill station.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=10.087,77.06009",
   },
   {
     slug: "kochi",
@@ -139,10 +227,17 @@ export const destinations: Destination[] = [
     tagline: "A port city layered with Chinese nets, Dutch lanes and spice godowns.",
     days: "2 days",
     bestTime: "October – March",
-    highlights: ["Chinese fishing nets", "Jew Town & synagogue", "Mattancherry Palace", "Fort Kochi cafés"],
+    highlights: ["Chinese fishing nets", "Jew Town & synagogue", "Mattancherry Palace", "Fort Kochi caf\u00e9s"],
+    coordinates: {
+      lat: 9.9679,
+      lng: 76.24444,
+    },
+    nearestAirport: "Cochin International Airport (COK), 28 km",
+    nearestRailway: "Ernakulam Junction (ERS) / Ernakulam Town (ERN)",
+    elevation: "4 m (13 ft)",
+    description: "Kochi, formerly known as Cochin, is a major port city along the Malabar Coast of India bordering the Laccadive Sea. It is part of the district of Ernakulam in the state of Kerala and is the financial, industial and commercial capital of the state. The city is also commonly referred to as Ernakulam, which is its central business district. As of 2011, the Kochi Municipal Corporation had a population of 677,381 over an area of 94.88\u00a0km2, and the larger Kochi urban agglomeration had over 2.1\u00a0million inhabitants within an area of 440\u00a0km2, making it the largest and the most populous metropolitan area in Kerala. Kochi city is also part of the Greater Cochin development region and is classified as a Tier-II city by the Government of India. The civic body that governs the city is the Kochi Municipal Corporation, which was constituted in the year 1967, and the statutory bodies that oversee its development are the Greater Cochin Development Authority (GCDA) and the Goshree Islands Development Authority (GIDA).",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=9.9679,76.24444",
   },
-
-  // ─── SOUTH · Tamil Nadu ───
   {
     slug: "madurai",
     name: "Madurai",
@@ -153,6 +248,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Meenakshi Temple", "Thousand Pillar Hall", "Night aarti", "Jigarthanda stalls"],
+    coordinates: {
+      lat: 9.92612,
+      lng: 78.1141,
+    },
+    nearestAirport: "Madurai International Airport (IXM), 12 km",
+    nearestRailway: "Madurai Junction (MDU)",
+    elevation: "101 m (331 ft)",
+    description: "Madurai is a major city in the Indian state of Tamil Nadu. It is the cultural capital of Tamil Nadu and the administrative headquarters of Madurai district, which is governed by the Madurai Municipal Corporation established on 1 November 1866. As of the 2011 census, it is the third largest metropolis in Tamil Nadu after Chennai and Coimbatore in terms of population and 27th largest urban agglomeration in India. Located on the banks of Vaigai River, Madurai has been a major settlement for two millennia and has a documented history of more than 2500 years. It is often referred to as \"Thoongaa Nagaram\", meaning \"the city that never sleeps\".",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=9.92612,78.1141",
   },
   {
     slug: "mahabalipuram",
@@ -164,6 +268,15 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "November – February",
     highlights: ["Shore Temple", "Pancha Rathas", "Arjuna's Penance", "Krishna's Butter Ball"],
+    coordinates: {
+      lat: 12.6196,
+      lng: 80.19365,
+    },
+    nearestAirport: "Chennai International Airport (MAA), 55 km",
+    nearestRailway: "Chengalpattu Junction (CGL), 29 km",
+    elevation: "12 m (39 ft)",
+    description: "Mamallapuram is a town in Chengalpattu district in the southeastern Indian state of Tamil Nadu, best known for the UNESCO World Heritage Site of 7th- and 8th-century Hindu Group of Monuments at Mahabalipuram. It is one of the famous tourist sites in India. The ancient name of the place is Thirukadalmallai. It is a part of Chennai Metropolitan Area. It is a satellite town of Chennai.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=12.6196,80.19365",
   },
   {
     slug: "ooty",
@@ -175,9 +288,116 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "March – June",
     highlights: ["Nilgiri Mountain Railway", "Botanical Gardens", "Doddabetta peak", "Ooty Lake"],
+    coordinates: {
+      lat: 11.41268,
+      lng: 76.70305,
+    },
+    nearestAirport: "Coimbatore International Airport (CJB), 88 km",
+    nearestRailway: "Udhagamandalam Railway Station (UAM) / Mettupalayam (MTP)",
+    elevation: "2,240 m (7,350 ft)",
+    description: "Ooty is a town and seat of the Nilgiris district in the Indian state of Tamil Nadu. It is located at an altitude of 2,240\u00a0m (7,350\u00a0ft), in the Nilgiri Mountains, which forms part of the Western Ghats, and is known by the epithet \"Queen of hill stations\".",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=11.41268,76.70305",
   },
-
-  // ─── EAST · Bihar ───
+  {
+    slug: "rohtas",
+    name: "Rohtasgarh Fort",
+    state: "Bihar",
+    region: "East",
+    image: rohtas,
+    tagline: "One of India's largest hill forts, perched 1,500 feet above the Son valley.",
+    days: "1–2 days",
+    bestTime: "October – March",
+    highlights: ["Hathiya Pol gate", "Rohtasan & Aina Mahal", "Phulwari Pond", "Chaulasan Devi shrine"],
+    coordinates: {
+      lat: 24.62343,
+      lng: 83.91777,
+    },
+    nearestAirport: "Gaya Airport (GAY), 140 km / Varanasi (VNS), 160 km",
+    nearestRailway: "Dehri-on-Sone (DOS), 45 km / Sasaram (SSM)",
+    elevation: "450 m (1,476 ft)",
+    description: "The Rohtasgarh or Rohtas Fort is located in the Son River valley, in the small town of Rohtas in Bihar, India.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.62343,83.91777",
+  },
+  {
+    slug: "kaimur",
+    name: "Kaimur Hills",
+    state: "Bihar",
+    region: "East",
+    image: kaimur,
+    tagline: "Bihar's largest district — waterfalls, wildlife sanctuaries and windswept plateaus.",
+    days: "1–2 days",
+    bestTime: "October – February",
+    highlights: ["Telhar Kund falls", "Karkatgarh falls", "Kaimur Sanctuary", "Gupta Dham caves"],
+    coordinates: {
+      lat: 25.07635,
+      lng: 83.6336,
+    },
+    nearestAirport: "Lal Bahadur Shastri Airport Varanasi (VNS), 110 km",
+    nearestRailway: "Bhabua Road Railway Station (BBU), 14 km",
+    elevation: "270 m (886 ft)",
+    description: "Kaimur district is one of the 38 districts of Bihar, India. The district headquarters are at Bhabua. Before 1991, it was part of Rohtas District. Until 1764 the region was a part of Ghazipur District and Kamsaar Raj and later it was a part of Chainpur Estate till 1837.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.07635,83.6336",
+  },
+  {
+    slug: "mundeshwari",
+    name: "Mundeshwari Temple",
+    state: "Bihar",
+    region: "East",
+    image: mundeshwari,
+    tagline: "India's oldest functioning temple — an octagonal shrine from around 625 AD.",
+    days: "1 day",
+    bestTime: "October – March",
+    highlights: ["Octagonal sanctum", "Ramgarh hill views", "Ancient inscriptions", "Chaturmukhi Shivalinga"],
+    coordinates: {
+      lat: 24.9834,
+      lng: 83.56469,
+    },
+    nearestAirport: "Lal Bahadur Shastri Airport Varanasi (VNS), 115 km",
+    nearestRailway: "Bhabua Road (BBU), 25 km / Mohania",
+    elevation: "185 m (607 ft)",
+    description: "The Mundeshwari Devi Temple is a Hindu temple, located at Ramgarh Village, 608 feet (185\u00a0m) on the Mundeshwari Hills of Kaimur plateau near Son River, in the Bhojpuri region of Indian state of Bihar. It is an Archaeological Survey of India (ASI) protected monument since 1915.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.9834,83.56469",
+  },
+  {
+    slug: "dev-surya",
+    name: "Dev Surya Temple",
+    state: "Bihar",
+    region: "East",
+    image: devSurya,
+    tagline: "A sun-temple town where Chhath's lamps meet the sacred Surya Kund at dawn.",
+    days: "1 day",
+    bestTime: "October – March",
+    highlights: ["Sun temple sanctum", "Chhath festival ghats", "Deo Fort", "Surya Kund water tank"],
+    coordinates: {
+      lat: 24.65879,
+      lng: 84.43703,
+    },
+    nearestAirport: "Gaya Airport (GAY), 75 km",
+    nearestRailway: "Anugrah Narayan Road (AUBR), 25 km / Aurangabad",
+    elevation: "120 m (394 ft)",
+    description: "Deo Sun Temple is a Hindu temple in Bihar, India. The temple is a solar shrine, dedicated to Surya, the sun god, for Chhath Puja. The temple is located in Deo Town, Aurangabad. The Temple is unique as it faces west, the setting sun, not the usual rising sun. It is considered to be one of the most sacred places for sun worshiping and Chhath Puja.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.65879,84.43703",
+  },
+  {
+    slug: "valmiki-tiger-reserve",
+    name: "Valmiki Tiger Reserve",
+    state: "Bihar",
+    region: "East",
+    image: valmiki,
+    tagline: "Bihar's only tiger reserve — Terai forest where tigers, elephants and gharials roam.",
+    days: "2–3 days",
+    bestTime: "November – March",
+    highlights: ["Jeep & boat safaris", "Gandak river banks", "Valmikinagar dam", "Nepal border views"],
+    coordinates: {
+      lat: 27.40608,
+      lng: 84.0053,
+    },
+    nearestAirport: "Gorakhpur Airport (GOP), 120 km / Patna (PAT), 280 km",
+    nearestRailway: "Valmikinagar Road (VKNR) / Narkatiaganj (NKE)",
+    elevation: "125 m (410 ft)",
+    description: "Valmiki National Park is a national park and tiger reserve in the West Champaran District of Bihar, India covering 898.45\u00a0km2 (346.89\u00a0sq\u00a0mi). It is the only national park in Bihar.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=27.40608,84.0053",
+  },
   {
     slug: "rajgir",
     name: "Rajgir",
@@ -188,6 +408,15 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "October – March",
     highlights: ["Vishwa Shanti Stupa", "Gridhakuta hill", "Hot springs", "Cyclopean walls"],
+    coordinates: {
+      lat: 25.03,
+      lng: 85.42074,
+    },
+    nearestAirport: "Jay Prakash Narayan Airport Patna (PAT), 100 km / Gaya (GAY), 78 km",
+    nearestRailway: "Rajgir Railway Station (RGD)",
+    elevation: "73 m (240 ft)",
+    description: "Rajgir is an ancient city and university town in the Nalanda district of Bihar, India. It is also considered a cultural capital of Magadh. It was the capital of the Haryanka dynasty, the Pradyota dynasty, the Brihadratha dynasty, the Maurya Empire, and it was the retreat center for the Buddha and his sangha. Other historical figures such as Mahavira and king Bimbisara lived there, and due to its religious significance, the city holds a place of prominence in Buddhist, Jain and Hindu scriptures.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.03,85.42074",
   },
   {
     slug: "nalanda",
@@ -199,6 +428,35 @@ export const destinations: Destination[] = [
     days: "1 day",
     bestTime: "October – March",
     highlights: ["Great Library ruins", "Sariputta stupa", "Monk cells & courtyards", "Xuanzang Memorial"],
+    coordinates: {
+      lat: 25.12814,
+      lng: 85.44559,
+    },
+    nearestAirport: "Jay Prakash Narayan Airport Patna (PAT), 90 km",
+    nearestRailway: "Nalanda Railway Station (NLD) / Bakhtiyarpur (BKP)",
+    elevation: "67 m (220 ft)",
+    description: "Nalanda was a renowned Buddhist mahavihara in medieval Magadha, eastern India. Widely considered to be among the greatest centres of learning in the ancient world and often referred to as \"the world's first residential university\", it was located near the city of Rajagriha, roughly 90 kilometres (56\u00a0mi) southeast of Pataliputra. Operating for almost a thousand years from 427 CE until around 1400 CE, Nalanda mahavihara played a vital role in promoting the patronage of arts, culture and academics during the 5th and 6th century CE, a period that has since been described as the \"Golden Age of India\" by scholars. The characterisation of Nalanda as a \"university\" in the modern sense has been challenged by scholars. They argue that while it was undoubtedly a major centre of learning, comparing it directly to a modern university is historically imprecise.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.12814,85.44559",
+  },
+  {
+    slug: "vaishali",
+    name: "Vaishali",
+    state: "Bihar",
+    region: "East",
+    image: vaishali,
+    tagline: "The world's first republic, where Buddha preached his last sermon and Mahavira was born.",
+    days: "1 day",
+    bestTime: "October – March",
+    highlights: ["Ashokan lion pillar", "Relic Stupa", "Bawan Pokhar temple", "Amrapali's lake"],
+    coordinates: {
+      lat: 25.74917,
+      lng: 85.39722,
+    },
+    nearestAirport: "Jay Prakash Narayan Airport Patna (PAT), 55 km",
+    nearestRailway: "Hajipur Junction (HJP), 35 km",
+    elevation: "52 m (171 ft)",
+    description: "Vaishali, Vesali or Vai\u015b\u0101l\u012b was an ancient city and today an archaeological site located north of Patna in present-day Bihar, India. It is also a Jain and Buddhist pilgrimage site. As an archaeological site it is spread over a group of modern villages located within the Vaishali District in Tirhut Division.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.74917,85.39722",
   },
   {
     slug: "bodh-gaya",
@@ -210,10 +468,96 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Mahabodhi Temple", "Bodhi Tree", "Great Buddha statue", "Monasteries of many nations"],
+    coordinates: {
+      lat: 24.69593,
+      lng: 84.99139,
+    },
+    nearestAirport: "Gaya Airport (GAY), 10 km",
+    nearestRailway: "Gaya Junction (GAYA), 13 km",
+    elevation: "111 m (364 ft)",
+    description: "Bodh Gay\u0101 is a religious site and place of pilgrimage associated with the Mahabodhi Temple complex, situated in the Gaya district in the Indian state of Bihar. It is famous for being the place where Gautama Buddha is said to have attained enlightenment under what became known as the Bodhi Tree. Since antiquity, Bodh Gay\u0101 has remained the object of pilgrimage and veneration for Buddhists. Archaeological finds, including sculptures, show that the site was in use by Buddhists since the Maurya period.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.69593,84.99139",
   },
-
-
-  // ─── EAST · Odisha ───
+  {
+    slug: "vishnupad",
+    name: "Vishnupad Temple",
+    state: "Bihar",
+    region: "East",
+    image: vishnupad,
+    tagline: "Gaya's riverside temple of Vishnu's footprint, hub of the pind daan ancestor rites.",
+    days: "1–2 days",
+    bestTime: "October – March",
+    highlights: ["40cm footprint shrine", "Falgu river ghats", "Pretshila hill", "Bodh Gaya nearby"],
+    coordinates: {
+      lat: 24.77736,
+      lng: 85.00934,
+    },
+    nearestAirport: "Gaya Airport (GAY), 9 km",
+    nearestRailway: "Gaya Junction (GAYA), 4 km",
+    elevation: "115 m (377 ft)",
+    description: "Vishnupad Temple is a Hindu temple in Gaya, Bihar, dedicated to Vishnu. Located on the banks of Phalgu river, the temple is believed to be built upon the site where Vishnu had purportedly killed the demon Gayasura and/or eternally pinned him underground. The temple features a 40-cm footprint purported to be of Vishnu incised into a block of basalt, known as Dharmasila which was retained when the deity stepped on Gayasura's chest before pinning him underground.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.77736,85.00934",
+  },
+  {
+    slug: "patna",
+    name: "Patna",
+    state: "Bihar",
+    region: "East",
+    image: patna,
+    tagline: "Ancient Pataliputra on the Ganga — 2,500 years of empire in one riverside city.",
+    days: "1–2 days",
+    bestTime: "October – March",
+    highlights: ["Golghar granary", "Kumhrar Mauryan ruins", "Patna Sahib Gurudwara", "Bihar Museum"],
+    coordinates: {
+      lat: 25.60932,
+      lng: 85.12353,
+    },
+    nearestAirport: "Jay Prakash Narayan International Airport (PAT), 5 km",
+    nearestRailway: "Patna Junction (PNBE) / Rajendra Nagar (RJPB)",
+    elevation: "53 m (174 ft)",
+    description: "Patna, historically known as P\u0101\u1e6daliputra, is the capital and largest city of the Indian state of Bihar. According to the United Nations, as of 2026, Patna had a population of 3.33\u00a0million, making it the 19th largest city in India. Covering 250 square kilometres (97\u00a0sq\u00a0mi) and over 2.5 million people, its urban agglomeration is the 18th largest in India. Patna also serves as the seat of Patna High Court. The Buddhist, Hindu and Jain pilgrimage centres of Vaishali, Rajgir, Nalanda, Bodh Gaya and Pawapuri are nearby and Patna City is a sacred city for Sikhs as the tenth Sikh Guru, Guru Gobind Singh was born here. The modern city of Patna is mainly on the southern bank of the river Ganges. The city also straddles the rivers Son, Gandak and Punpun. The city is approximately 35 kilometres (22\u00a0mi) in length and 16 to 18 kilometres wide.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.60932,85.12353",
+  },
+  {
+    slug: "pawapuri",
+    name: "Pawapuri",
+    state: "Bihar",
+    region: "East",
+    image: pawapuri,
+    tagline: "The white marble Jal Mandir floating on a lotus lake where Mahavira attained nirvana.",
+    days: "1 day",
+    bestTime: "October – March",
+    highlights: ["Jal Mandir lake temple", "Lotus-covered pond", "Jain pilgrimage circuit", "Rajgir nearby"],
+    coordinates: {
+      lat: 25.09143,
+      lng: 85.53889,
+    },
+    nearestAirport: "Jay Prakash Narayan Airport Patna (PAT), 100 km",
+    nearestRailway: "Pawapuri Road (POE) / Bakhtiyarpur (BKP)",
+    elevation: "68 m (223 ft)",
+    description: "Pawapuri, or Pavapuri, is a holy site for Jains located in the Nalanda district of Bihar state in eastern India. It is located about 19 kilometres from Rajgir and 101 kilometres from Patna, the capital of Bihar. Pawapuri is Mahavira's nirvana and a pilgrimage site for Jains.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.09143,85.53889",
+  },
+  {
+    slug: "kesaria",
+    name: "Kesaria Stupa",
+    state: "Bihar",
+    region: "East",
+    image: kesaria,
+    tagline: "The world's largest Buddhist stupa — a terraced colossus in Champaran's fields.",
+    days: "1 day",
+    bestTime: "October – March",
+    highlights: ["Terraced stupa climb", "Buddha relic site", "Gandak floodplains", "Champaran history"],
+    coordinates: {
+      lat: 26.33419,
+      lng: 84.85486,
+    },
+    nearestAirport: "Jay Prakash Narayan Airport Patna (PAT), 120 km",
+    nearestRailway: "Chakia Railway Station (CAA), 22 km / Bapudham Motihari (MKI)",
+    elevation: "64 m (210 ft)",
+    description: "Kesariya Stupa is a Buddhist stupa in Kesariya, near the town of Mehsi, located at a distance of 110 kilometres (68\u00a0mi) from Patna, in the East Champaran district of Bihar, India. Construction of the stupa at this site began in the 3rd century BCE. Kesariya Stupa has a circumference of almost 400 feet (120\u00a0m) and a height of about 104 feet (32\u00a0m).",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=26.33419,84.85486",
+  },
   {
     slug: "puri",
     name: "Puri",
@@ -224,6 +568,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Jagannath Temple", "Rath Yatra", "Puri beach sunrise", "Pipili applique market"],
+    coordinates: {
+      lat: 19.80761,
+      lng: 85.82525,
+    },
+    nearestAirport: "Biju Patnaik International Airport Bhubaneswar (BBI), 60 km",
+    nearestRailway: "Puri Railway Station (PURI)",
+    elevation: "5 m (16 ft)",
+    description: "Puri is a coastal city and a municipality in the state of Odisha in eastern India. It is the district headquarters of Puri district and is situated on the Bay of Bengal, 60 kilometres south of the state capital of Bhubaneswar. It is also known as Sri Jagannatha Dhama after the 12th-century Jagannatha Temple located in the city. It is one of the original Char Dham pilgrimage sites for Hindus.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.80761,85.82525",
   },
   {
     slug: "konark",
@@ -235,6 +588,15 @@ export const destinations: Destination[] = [
     days: "1 day",
     bestTime: "October – February",
     highlights: ["Sun Temple wheels", "Nata Mandir", "Chandrabhaga beach", "Konark museum"],
+    coordinates: {
+      lat: 19.88756,
+      lng: 86.09449,
+    },
+    nearestAirport: "Biju Patnaik International Airport Bhubaneswar (BBI), 65 km",
+    nearestRailway: "Puri Railway Station (PURI), 35 km",
+    elevation: "7 m (23 ft)",
+    description: "Konark Sun Temple is a 13th-century\u00a0CE Hindu Sun temple at Konark about 35 kilometres (22\u00a0mi) northeast from Puri city on the coastline in Puri district, Odisha, India. The temple is attributed to king Narasingha Deva I of the Eastern Ganga dynasty about 1250\u00a0CE. Dedicated to the Hindu Sun-god Surya, it reflects the pinnacle of Kalingan architecture and artistic excellence, what remains of the temple complex has the appearance of a 30-metre (100\u00a0ft) high chariot with immense wheels and horses, all carved from stone. Once over 61 metres (200\u00a0ft) high, much of the temple is now in ruins, in particular the large shikara tower over the sanctuary; at one time this rose much higher than the mandapa that remains. The structures and elements that have survived are famed for their intricate artwork, iconography, and themes, including erotic kama and mithuna scenes. Also called the Surya Devalaya, it is a classic illustration of the Odisha style of Architecture or Kalinga architecture.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.88756,86.09449",
   },
   {
     slug: "bhubaneswar",
@@ -246,6 +608,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Lingaraj Temple", "Udayagiri caves", "Mukteshwar Temple", "Dhauli peace pagoda"],
+    coordinates: {
+      lat: 20.2603,
+      lng: 85.83945,
+    },
+    nearestAirport: "Biju Patnaik International Airport (BBI), 4 km",
+    nearestRailway: "Bhubaneswar Railway Station (BBS)",
+    elevation: "45 m (148 ft)",
+    description: "Bhubaneswar is the capital and the largest city of the Indian state of Odisha. It is located in the Khordha district. The suburban region, especially the old town, was historically often depicted as Chakra Khetra and Ekamra Khetra. Bhubaneswar is dubbed the \"Temple City\", a nickname earned because of many temples which are standing there. In contemporary times, the city is a hub of sports, tourism and IT in the country. Although the modern city of Bhubaneswar was formally established in 1948, the history of the areas in and around the present-day city can be traced to the 1st century BCE. It is a confluence of Hindu, Buddhist and Jain heritage and includes several Kalingan temples, many of them from 6th\u201313th century CE. With Puri and Konark, it forms the \"Swarna Tribhuja\", one of Eastern India's most visited destinations.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=20.2603,85.83945",
   },
   {
     slug: "chilika",
@@ -257,9 +628,16 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "November – February",
     highlights: ["Irrawaddy dolphins", "Mangalajodi birding", "Satapada boats", "Kalijai island shrine"],
+    coordinates: {
+      lat: 19.68532,
+      lng: 85.25037,
+    },
+    nearestAirport: "Biju Patnaik International Airport Bhubaneswar (BBI), 100 km",
+    nearestRailway: "Balugaon Railway Station (BALU)",
+    elevation: "2 m (7 ft)",
+    description: "Chilika Lake is the largest brackish water lagoon with estuarine characteristics along the east coast of Indian sub-continent in Asia and second largest coastal lagoon in the world, its area ranges from about 900 to 11,165 sq km during summers and monsoon respectively. It is spread over the Puri, Khordha and Ganjam districts of Odisha state on the east coast of India, at the mouth of the Daya River, flowing into the Bay of Bengal.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.68532,85.25037",
   },
-
-  // ─── WEST · Maharashtra ───
   {
     slug: "mumbai",
     name: "Mumbai",
@@ -270,6 +648,15 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "November – February",
     highlights: ["Gateway of India", "Marine Drive", "Elephanta Caves", "Colaba & Kala Ghoda"],
+    coordinates: {
+      lat: 19.07611,
+      lng: 72.8775,
+    },
+    nearestAirport: "Chhatrapati Shivaji Maharaj International Airport (BOM), 15 km",
+    nearestRailway: "Chhatrapati Shivaji Maharaj Terminus (CSMT) / Mumbai Central (MMCT)",
+    elevation: "14 m (46 ft)",
+    description: "Mumbai, also known as Bombay, is the capital city of the Indian state of Maharashtra and the financial capital of India. Located on the Konkan coast along the west coast of India, it has a deep natural harbour. As per the 2011 Census of India, it is the most populous city proper in India, with a population of almost 12.5 million, while the Mumbai Metropolitan Region, which is among the most populous metropolitan areas in the world, has a population of over 20\u00a0million. The city forms part of the Mumbai City and Mumbai Suburban districts and is administered by the Brihanmumbai Municipal Corporation, which was established in 1888.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.07611,72.8775",
   },
   {
     slug: "ellora",
@@ -281,6 +668,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "October – March",
     highlights: ["Kailasa Temple", "Ajanta murals", "Buddhist viharas", "Daulatabad fort"],
+    coordinates: {
+      lat: 20.0268,
+      lng: 75.1771,
+    },
+    nearestAirport: "Chhatrapati Sambhajinagar Airport (IXU), 30 km",
+    nearestRailway: "Chhatrapati Sambhajinagar Railway Station (AWB), 28 km",
+    elevation: "570 m (1,870 ft)",
+    description: "The Ellora Caves are a UNESCO World Heritage Site in Aurangabad, India. It is one of the largest rock-cut cave complexes in the world, with artwork dating from AD 600\u20131000, including Hindu, Buddhist, and Jain caves. The complex is a leading example of Indian rock-cut architecture, and several are not strictly \"caves\" in that they have no roof. Cave 16 features the largest single monolithic rock excavation in the world, the Kailash temple, a chariot-shaped monument dedicated to the god Shiva. The Kailash temple excavation also features sculptures depicting various Hindu deities as well as relief panels summarizing the two major Hindu epics.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=20.0268,75.1771",
   },
   {
     slug: "lonavala",
@@ -292,9 +688,16 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "June – September",
     highlights: ["Bhushi dam", "Tiger's Leap", "Karla caves", "Rajmachi fort trek"],
+    coordinates: {
+      lat: 18.75037,
+      lng: 73.40694,
+    },
+    nearestAirport: "Pune International Airport (PNQ), 70 km / Mumbai (BOM), 90 km",
+    nearestRailway: "Lonavala Railway Station (LNL)",
+    elevation: "622 m (2,041 ft)",
+    description: "Lonavala-Khandala is a hill station and a municipal council in the Pune district, Maharashtra. It is about 64\u00a0km west of Pune and 96\u00a0km to the east of Mumbai. It is known for its production of the hard candy chikki and is also a major stop on the railway line connecting Mumbai and Pune. From the Pune suburbs, local trains are available from Pune Junction. The Mumbai-Pune Expressway and the Mumbai-Pune national highway both pass through Lonavala.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=18.75037,73.40694",
   },
-
-  // ─── WEST · Gujarat ───
   {
     slug: "rann-of-kutch",
     name: "Rann of Kutch",
@@ -305,6 +708,15 @@ export const destinations: Destination[] = [
     days: "2–3 days",
     bestTime: "November – February",
     highlights: ["White Rann full moon", "Rann Utsav tents", "Bhuj craft villages", "Kalo Dungar viewpoint"],
+    coordinates: {
+      lat: 24.08639,
+      lng: 70.63778,
+    },
+    nearestAirport: "Bhuj Airport (BHJ), 80 km",
+    nearestRailway: "Bhuj Railway Station (BHUJ), 82 km",
+    elevation: "15 m (49 ft)",
+    description: "The Great Rann of Kutch is a salt marsh in the Thar Desert in the Kutch District of Gujarat, India. It is about 7500\u00a0km2 in area and is reputed to be one of the largest salt deserts in the world. This area has been inhabited by the Kutchi people.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.08639,70.63778",
   },
   {
     slug: "gir",
@@ -316,6 +728,15 @@ export const destinations: Destination[] = [
     days: "2 days",
     bestTime: "December – March",
     highlights: ["Lion safari", "Devalia interpretation zone", "Kamleshwar dam", "Somnath nearby"],
+    coordinates: {
+      lat: 21.13556,
+      lng: 70.79667,
+    },
+    nearestAirport: "Keshod Airport (IXK), 40 km / Rajkot (RAJ), 160 km",
+    nearestRailway: "Sasan Gir (SASN) / Junagadh Junction (JND), 60 km",
+    elevation: "156 m (512 ft)",
+    description: "Gir National Park and Wildlife Sanctuary, also known as Sasan Gir, is a national park and wildlife sanctuary in Gujarat, India. It was established in 1965 in the erstwhile Nawab of Junagarh's private hunting area, with a total area of 1,410.30\u00a0km2 (544.52\u00a0sq\u00a0mi), of which 258.71\u00a0km2 (99.89\u00a0sq\u00a0mi) is fully protected as a national park and 1,151.59\u00a0km2 (444.63\u00a0sq\u00a0mi) as wildlife sanctuary. It is part of the Khathiar-Gir dry deciduous forests ecoregion.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=21.13556,70.79667",
   },
   {
     slug: "dwarka",
@@ -327,6 +748,15 @@ export const destinations: Destination[] = [
     days: "1–2 days",
     bestTime: "October – March",
     highlights: ["Dwarkadhish Temple", "Bet Dwarka boat", "Rukmini Devi Temple", "Gomti Ghat aarti"],
+    coordinates: {
+      lat: 22.23777,
+      lng: 68.96751,
+    },
+    nearestAirport: "Porbandar Airport (PBD), 105 km / Jamnagar (JGA), 130 km",
+    nearestRailway: "Dwarka Railway Station (DWK)",
+    elevation: "7 m (23 ft)",
+    description: "Dwarka is a coastal town and municipality of Devbhumi Dwarka district in the Indian state of Gujarat. It is located on the western shore of the Okhamandal Peninsula on the right bank of the Gomti River at the mouth of the Gulf of Kutch facing the Arabian Sea.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=22.23777,68.96751",
   },
 ];
 
@@ -335,6 +765,8 @@ export type Heritage = {
   era: string;
   place: string;
   blurb: string;
+  coordinates?: Coordinates;
+  mapUrl?: string;
 };
 
 export const heritage: Heritage[] = [
@@ -344,6 +776,8 @@ export const heritage: Heritage[] = [
     place: "Khajuraho, Hampi, Belur",
     blurb:
       "Stone shikharas, carved mandapas and sculpted friezes that turned devotion into geometry.",
+    coordinates: { lat: 22.2378, lng: 68.9675 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=22.2378,68.9675",
   },
   {
     title: "Mughal Gardens & Tombs",
@@ -351,6 +785,8 @@ export const heritage: Heritage[] = [
     place: "Agra, Delhi, Srinagar",
     blurb:
       "Charbagh symmetry, marble inlay and water channels designed as an earthly paradise.",
+    coordinates: { lat: 27.1751, lng: 78.0421 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=27.1751,78.0421",
   },
   {
     title: "Classical Dance",
@@ -358,6 +794,8 @@ export const heritage: Heritage[] = [
     place: "Tamil Nadu, Odisha, Manipur",
     blurb:
       "Bharatanatyam, Odissi and Manipuri — storytelling through mudras, rhythm and eyes.",
+    coordinates: { lat: 19.8876, lng: 86.0945 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.8876,86.0945",
   },
   {
     title: "Textile Crafts",
@@ -365,6 +803,8 @@ export const heritage: Heritage[] = [
     place: "Kutch, Varanasi, Bhuj",
     blurb:
       "Bandhani tie-dye, Banarasi brocade and block printing passed down through families.",
+    coordinates: { lat: 23.242, lng: 69.6669 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=23.242,69.6669",
   },
   {
     title: "Festivals of Light & Colour",
@@ -372,6 +812,8 @@ export const heritage: Heritage[] = [
     place: "Pan-India",
     blurb:
       "Diwali lamps, Holi pigments, Pongal harvests and Durga Puja pandals across the calendar.",
+    coordinates: { lat: 25.3356, lng: 83.0076 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.3356,83.0076",
   },
   {
     title: "Regional Cuisines",
@@ -379,6 +821,8 @@ export const heritage: Heritage[] = [
     place: "Every state",
     blurb:
       "From Awadhi dum cooking to Chettinad spice blends — a different grammar in every region.",
+    coordinates: { lat: 26.8381, lng: 80.9346 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=26.8381,80.9346",
   },
 ];
 

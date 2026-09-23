@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Plus, Trash2, CalendarRange } from "lucide-react";
+import { Plus, Trash2, CalendarRange, Navigation, ExternalLink, Plane, Train } from "lucide-react";
 
 import { destinations } from "@/lib/data";
 
@@ -11,20 +11,26 @@ export const Route = createFileRoute("/itinerary")({
       {
         name: "description",
         content:
-          "Build a day-by-day India itinerary: add destinations and highlights to each day and shape your pace.",
+          "Build a day-by-day India itinerary with exact coordinates, maps, and travel highlights across 35 destinations.",
       },
       { property: "og:title", content: "Plan Your India Itinerary — Bharat Darshan" },
       {
         property: "og:description",
         content:
-          "Build a day-by-day India itinerary: add destinations and highlights to each day and shape your pace.",
+          "Build a day-by-day India itinerary with exact coordinates, maps, and travel highlights across 35 destinations.",
       },
     ],
   }),
   component: Itinerary,
 });
 
-type Stop = { id: number; label: string; place: string };
+type Stop = {
+  id: number;
+  label: string;
+  place: string;
+  coordinates?: { lat: number; lng: number };
+  mapUrl?: string;
+};
 
 let nextId = 1;
 
@@ -38,14 +44,22 @@ function Itinerary() {
     [picked],
   );
 
-
   const total = days.reduce((n, d) => n + d.length, 0);
 
   function addStop(label: string) {
     setDays((prev) =>
       prev.map((d, i) =>
         i === active
-          ? [...d, { id: nextId++, label, place: destination.name }]
+          ? [
+              ...d,
+              {
+                id: nextId++,
+                label,
+                place: destination.name,
+                coordinates: destination.coordinates,
+                mapUrl: destination.mapUrl,
+              },
+            ]
           : d,
       ),
     );
@@ -61,14 +75,14 @@ function Itinerary() {
     <div className="mx-auto max-w-6xl px-5 py-16">
       <h1 className="text-5xl">Plan your journey</h1>
       <p className="mt-3 max-w-xl text-muted-foreground">
-        Pick a destination, choose a day, and add the experiences you want. Your
-        plan builds itself as you go.
+        Pick a destination, choose a day, and add the experiences you want with
+        exact geographic coordinates and maps. Your plan builds itself as you go.
       </p>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[22rem_1fr]">
         <aside className="h-fit rounded-3xl border border-border bg-card p-6">
           <label className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Destination
+            Destination ({destinations.length} available)
           </label>
           <select
             value={picked}
@@ -81,6 +95,33 @@ function Itinerary() {
               </option>
             ))}
           </select>
+
+          {/* Destination Coordinates & Transport Details */}
+          <div className="mt-3 rounded-xl bg-secondary/40 p-3 text-xs text-muted-foreground">
+            <div className="flex items-center justify-between font-mono">
+              <span>
+                {destination.coordinates.lat.toFixed(4)}° N, {destination.coordinates.lng.toFixed(4)}° E
+              </span>
+              <a
+                href={destination.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-sans text-primary hover:underline"
+              >
+                Map <ExternalLink className="size-3" />
+              </a>
+            </div>
+            <div className="mt-2 space-y-1 pt-2 border-t border-border/50 text-[11px]">
+              <div className="flex items-center gap-1.5 truncate">
+                <Plane className="size-3 shrink-0 text-accent" />
+                <span className="truncate">{destination.nearestAirport}</span>
+              </div>
+              <div className="flex items-center gap-1.5 truncate">
+                <Train className="size-3 shrink-0 text-accent" />
+                <span className="truncate">{destination.nearestRailway}</span>
+              </div>
+            </div>
+          </div>
 
           <p className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Add to day {active + 1}
@@ -151,23 +192,37 @@ function Itinerary() {
                         key={s.id}
                         className="flex items-center justify-between gap-3 rounded-xl bg-secondary px-4 py-3 text-sm"
                       >
-                        <span>
-                          <span className="mr-3 text-primary">
+                        <span className="flex items-center gap-2">
+                          <span className="text-primary font-mono">
                             {String(idx + 1).padStart(2, "0")}
                           </span>
-                          {s.label}
-                          <span className="ml-2 text-muted-foreground">
+                          <span>{s.label}</span>
+                          <span className="text-xs text-muted-foreground">
                             · {s.place}
                           </span>
                         </span>
-                        <button
-                          type="button"
-                          aria-label={`Remove ${s.label}`}
-                          onClick={() => removeStop(i, s.id)}
-                          className="text-muted-foreground transition-colors hover:text-destructive"
-                        >
-                          <Trash2 className="size-4" />
-                        </button>
+                        <div className="flex items-center gap-3">
+                          {s.mapUrl && (
+                            <a
+                              href={s.mapUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={`View ${s.label} on map`}
+                              className="text-muted-foreground transition-colors hover:text-primary"
+                              title="Open on map"
+                            >
+                              <Navigation className="size-4" />
+                            </a>
+                          )}
+                          <button
+                            type="button"
+                            aria-label={`Remove ${s.label}`}
+                            onClick={() => removeStop(i, s.id)}
+                            className="text-muted-foreground transition-colors hover:text-destructive"
+                          >
+                            <Trash2 className="size-4" />
+                          </button>
+                        </div>
                       </li>
                     ))}
                   </ol>
