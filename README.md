@@ -4,6 +4,12 @@ Build the frontend for Bharat Darshan, an AI-based tour guide app for exploring 
 
 **Live app**: https://bharat-darshan-frontend.lovable.app
 
+## Project QR Code
+
+Scan this QR code to open the project link:
+
+![Bharat Darshan project QR code](qr/qrcode_404512939_d73fee5b3887525406b2fed259497f37.png)
+
 ## Run Locally
 
 ### Prerequisites
