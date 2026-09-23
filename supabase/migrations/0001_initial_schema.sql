@@ -1,6 +1,6 @@
 create extension if not exists pgcrypto;
 
-create table public.profiles (
+create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   full_name text,
   avatar_url text,
@@ -8,7 +8,7 @@ create table public.profiles (
   updated_at timestamptz not null default now()
 );
 
-create table public.destinations (
+create table if not exists public.destinations (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
   name text not null,
@@ -23,7 +23,7 @@ create table public.destinations (
   updated_at timestamptz not null default now()
 );
 
-create table public.heritage_sites (
+create table if not exists public.heritage_sites (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
   name text not null,
@@ -34,7 +34,7 @@ create table public.heritage_sites (
   updated_at timestamptz not null default now()
 );
 
-create table public.itineraries (
+create table if not exists public.itineraries (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   title text not null,
@@ -44,7 +44,7 @@ create table public.itineraries (
   updated_at timestamptz not null default now()
 );
 
-create table public.itinerary_items (
+create table if not exists public.itinerary_items (
   id uuid primary key default gen_random_uuid(),
   itinerary_id uuid not null references public.itineraries(id) on delete cascade,
   destination_id uuid references public.destinations(id) on delete set null,
@@ -55,14 +55,14 @@ create table public.itinerary_items (
   created_at timestamptz not null default now()
 );
 
-create table public.saved_destinations (
+create table if not exists public.saved_destinations (
   user_id uuid not null references public.profiles(id) on delete cascade,
   destination_id uuid not null references public.destinations(id) on delete cascade,
   created_at timestamptz not null default now(),
   primary key (user_id, destination_id)
 );
 
-create table public.chat_messages (
+create table if not exists public.chat_messages (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
   role text not null check (role in ('user', 'assistant')),
@@ -86,18 +86,22 @@ begin
 end;
 $$;
 
+drop trigger if exists profiles_set_updated_at on public.profiles;
 create trigger profiles_set_updated_at
 before update on public.profiles
 for each row execute procedure public.set_updated_at();
 
+drop trigger if exists destinations_set_updated_at on public.destinations;
 create trigger destinations_set_updated_at
 before update on public.destinations
 for each row execute procedure public.set_updated_at();
 
+drop trigger if exists heritage_sites_set_updated_at on public.heritage_sites;
 create trigger heritage_sites_set_updated_at
 before update on public.heritage_sites
 for each row execute procedure public.set_updated_at();
 
+drop trigger if exists itineraries_set_updated_at on public.itineraries;
 create trigger itineraries_set_updated_at
 before update on public.itineraries
 for each row execute procedure public.set_updated_at();
@@ -119,6 +123,7 @@ begin
 end;
 $$;
 
+drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
 after insert on auth.users
 for each row execute procedure public.handle_new_user();
@@ -130,6 +135,22 @@ alter table public.itineraries enable row level security;
 alter table public.itinerary_items enable row level security;
 alter table public.saved_destinations enable row level security;
 alter table public.chat_messages enable row level security;
+
+drop policy if exists "Profiles are visible to their owner" on public.profiles;
+drop policy if exists "Users can update their own profile" on public.profiles;
+drop policy if exists "Destinations are publicly readable" on public.destinations;
+drop policy if exists "Heritage sites are publicly readable" on public.heritage_sites;
+drop policy if exists "Users can view their own itineraries" on public.itineraries;
+drop policy if exists "Users can create their own itineraries" on public.itineraries;
+drop policy if exists "Users can update their own itineraries" on public.itineraries;
+drop policy if exists "Users can delete their own itineraries" on public.itineraries;
+drop policy if exists "Users can manage items in their itineraries" on public.itinerary_items;
+drop policy if exists "Users can view their saved destinations" on public.saved_destinations;
+drop policy if exists "Users can save destinations" on public.saved_destinations;
+drop policy if exists "Users can remove saved destinations" on public.saved_destinations;
+drop policy if exists "Users can view their chat messages" on public.chat_messages;
+drop policy if exists "Users can create their chat messages" on public.chat_messages;
+drop policy if exists "Users can delete their chat messages" on public.chat_messages;
 
 create policy "Profiles are visible to their owner"
 on public.profiles for select
