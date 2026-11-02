@@ -78,3 +78,16 @@ To apply the schema:
 
 The publishable key can be used by the browser client. Never put a Supabase
 `service_role` key in `.env.local` or frontend code.
+
+### Google Gemini API
+
+1. Create an API key in [Google AI Studio](https://aistudio.google.com/apikey).
+2. Copy `.env.example` to `.env.local` if needed.
+3. Add the key without the `VITE_` prefix because it must stay on the server:
+
+```env
+GOOGLE_API_KEY=your-google-gemini-api-key
+VITE_GOOGLE_API_KEY=your-google-gemini-api-key
+```
+
+The AI tour guide uses Google Gemini models (gemini-1.5-flash, gemini-2.0-flash, gemini-1.5-pro) through the server-side `/api/chat` route or directly via in-app settings.
