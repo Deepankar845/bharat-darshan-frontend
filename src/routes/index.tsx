@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Map, Landmark, MessageCircle, Navigation, ExternalLink } from "lucide-react";
+import { ArrowRight, Sparkles, Map, MessageCircle, Navigation, ExternalLink } from "lucide-react";
 
 import hero from "@/assets/hero-india-montage.jpg";
 import { destinations } from "@/lib/data";
@@ -45,12 +45,6 @@ const features = [
     title: "Itinerary planner",
     text: "Build a day-by-day plan by dragging places into your trip and shaping the pace.",
     to: "/itinerary" as const,
-  },
-  {
-    icon: Landmark,
-    title: "Cultural heritage",
-    text: "Temples, textiles, dance and festivals — the living traditions behind the monuments.",
-    to: "/heritage" as const,
   },
 ];
 

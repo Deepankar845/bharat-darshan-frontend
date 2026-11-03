@@ -8,7 +8,6 @@ const links = [
   { to: "/guide", label: "AI Guide" },
   { to: "/itinerary", label: "Itinerary" },
   { to: "/festivals", label: "Festivals" },
-  { to: "/heritage", label: "Heritage" },
 ] as const;
 
 export function SiteHeader() {
