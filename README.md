@@ -58,6 +58,21 @@ To preview the production build locally:
 npm run preview
 ```
 
+## Deploy to Vercel
+
+1. Import the `bharat-darshan-frontend` repository in Vercel.
+2. Leave the framework preset as **Vite** and use the checked-in `vercel.json`.
+3. Add this server-only environment variable in the Vercel project settings:
+
+```env
+GOOGLE_API_KEY=your-google-gemini-api-key
+```
+
+4. Redeploy the project. The key should be added under both Production and Preview environments.
+
+Do not expose the Gemini key through a `VITE_` variable. The chat API reads
+`GOOGLE_API_KEY` only on the server.
+
 ## Supabase Backend
 
 The Supabase client is configured in `src/lib/supabase.ts`. The initial database
