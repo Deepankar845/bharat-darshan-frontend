@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { createOpenAI } from "@ai-sdk/openai";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
 
 const SYSTEM_PROMPT = `You are the Bharat Darshan AI tour guide: a warm, practical, culturally knowledgeable expert on travelling across India.
@@ -11,7 +12,6 @@ If a question is completely unrelated to India or travel, politely steer back.`;
 
 type ChatRequestBody = {
   messages?: unknown;
-  apiKey?: string;
   model?: string;
 };
 
@@ -31,17 +31,10 @@ export const Route = createFileRoute("/api/chat")({
           return new Response("Messages are required", { status: 400 });
         }
 
-        // Check for Google Gemini API key from body, headers, or environment variables
-        const headerKey =
-          request.headers.get("x-google-api-key") ||
-          request.headers.get("x-gemini-api-key");
-
         const googleApiKey =
-          body.apiKey ||
-          headerKey ||
           process.env["GOOGLE_API_KEY"] ||
           process.env["GEMINI_API_KEY"] ||
-          process.env["VITE_GOOGLE_API_KEY"];
+          "";
 
         const headerModel =
           request.headers.get("x-gemini-model") ||
@@ -51,7 +44,7 @@ export const Route = createFileRoute("/api/chat")({
           body.model ||
           headerModel ||
           process.env["GEMINI_MODEL"] ||
-          "gemini-1.5-flash";
+          "gemini-3-flash-preview";
 
         const lovableApiKey = process.env["LOVABLE_API_KEY"];
 
@@ -73,15 +66,13 @@ export const Route = createFileRoute("/api/chat")({
           let modelName = requestedModel;
 
           if (googleApiKey) {
-            // Google's official OpenAI-compatible endpoint for Gemini models
-            client = createOpenAI({
-              baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/",
+            client = createGoogleGenerativeAI({
               apiKey: googleApiKey.trim(),
             });
 
             // Ensure model name is recognized by Google Gemini endpoint
-            if (!modelName.startsWith("gemini")) {
-              modelName = "gemini-1.5-flash";
+            if (!["gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.5-pro"].includes(modelName)) {
+              modelName = "gemini-3-flash-preview";
             }
           } else {
             // Lovable gateway fallback
@@ -118,7 +109,7 @@ export const Route = createFileRoute("/api/chat")({
           if (errorMsg.includes("API_KEY_INVALID") || errorMsg.includes("API key not valid")) {
             errorMsg = "Invalid Google Gemini API key. Please check your key in settings.";
           } else if (errorMsg.includes("RESOURCE_EXHAUSTED") || errorMsg.includes("quota")) {
-            errorMsg = "Google Gemini API rate limit or quota exceeded. Please try again in a few moments or switch to gemini-1.5-flash.";
+            errorMsg = "Google Gemini API rate limit or quota exceeded. Please try again in a few moments or switch to gemini-3-flash-preview.";
           }
 
           return new Response(errorMsg, { status: 500 });
@@ -127,4 +118,3 @@ export const Route = createFileRoute("/api/chat")({
     },
   },
 });
-
