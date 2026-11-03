@@ -12,6 +12,8 @@ import {
   Mountain,
   Info,
   ChevronDown,
+  BedDouble,
+  Hotel,
 } from "lucide-react";
 
 import { destinations } from "@/lib/data";
@@ -53,6 +55,8 @@ function Destinations() {
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
   const [query, setQuery] = useState(searchParams?.q ?? "");
   const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
+  const [hotelsSlug, setHotelsSlug] = useState<string | null>(null);
+  const [hotelBudget, setHotelBudget] = useState<"budget" | "mid" | "premium">("budget");
 
   useEffect(() => {
     if (searchParams?.q !== undefined) {
@@ -196,6 +200,92 @@ function Destinations() {
                     <span className="inline-flex items-center gap-1.5">
                       <CalendarDays className="size-3.5 text-accent" /> {d.bestTime}
                     </span>
+                  </div>
+
+                  <div className="mt-4 rounded-2xl border border-border/70 bg-background/40">
+                    <button
+                      type="button"
+                      onClick={() => setHotelsSlug(hotelsSlug === d.slug ? null : d.slug)}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-foreground"
+                    >
+                      <span className="flex items-center gap-2">
+                        <BedDouble className="size-4 text-primary" />
+                        Nearby hotels by budget
+                      </span>
+                      <ChevronDown
+                        className={`size-4 transition-transform ${hotelsSlug === d.slug ? "rotate-180" : ""}`}
+                      />
+                    </button>
+
+                    {hotelsSlug === d.slug && (
+                      <div className="border-t border-border/70 p-4">
+                        <div className="grid grid-cols-3 gap-2">
+                          {([
+                            ["budget", "Budget"],
+                            ["mid", "Mid-range"],
+                            ["premium", "Luxury"],
+                          ] as const).map(([value, label]) => (
+                            <button
+                              key={value}
+                              type="button"
+                              onClick={() => setHotelBudget(value)}
+                              className={`rounded-xl border px-2 py-2 text-xs font-medium transition-colors ${
+                                hotelBudget === value
+                                  ? "border-primary bg-primary text-primary-foreground"
+                                  : "border-border bg-card text-muted-foreground hover:text-foreground"
+                              }`}
+                            >
+                              {label}
+                            </button>
+                          ))}
+                        </div>
+
+                        <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                          Map area anchor: {d.coordinates.lat}, {d.coordinates.lng}. Live hotel
+                          availability and exact hotel coordinates are shown on the booking sites.
+                        </p>
+
+                        {(() => {
+                          const budgetLabel =
+                            hotelBudget === "budget"
+                              ? "budget cheap"
+                              : hotelBudget === "mid"
+                                ? "mid range"
+                                : "luxury";
+                          const hotelSearch = encodeURIComponent(
+                            `${budgetLabel} hotels near ${d.name} ${d.state} India`,
+                          );
+                          const bookingLinks = [
+                            ["Google Hotels", `https://www.google.com/travel/hotels/${encodeURIComponent(d.name)}?hl=en-IN`],
+                            ["Booking.com", `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(`${d.name}, India`)}`],
+                            ["MakeMyTrip", `https://www.makemytrip.com/hotels/${encodeURIComponent(d.name.toLowerCase().replace(/ /g, "-"))}-hotels.html`],
+                            ["Goibibo", `https://www.goibibo.com/hotels/${encodeURIComponent(d.name.toLowerCase().replace(/ /g, "-"))}-hotels/`],
+                            ["OYO", `https://www.oyorooms.com/search?location=${encodeURIComponent(`${d.name}, ${d.state}`)}`],
+                            ["Nearby on Maps", `https://www.google.com/maps/search/?api=1&query=${hotelSearch}`],
+                          ] as const;
+
+                          return (
+                            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                              {bookingLinks.map(([name, url]) => (
+                                <a
+                                  key={name}
+                                  href={url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center justify-between rounded-xl border border-border bg-card px-3 py-2.5 text-xs font-medium hover:border-primary/50 hover:bg-secondary/50"
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <Hotel className="size-3.5 text-primary" />
+                                    {name}
+                                  </span>
+                                  <ExternalLink className="size-3 text-muted-foreground" />
+                                </a>
+                              ))}
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    )}
                   </div>
 
                   {/* Highlights */}

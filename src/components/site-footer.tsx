@@ -14,6 +14,9 @@ export function SiteFooter() {
           <Link to="/heritage" className="hover:text-primary">
             Heritage
           </Link>
+          <Link to="/festivals" className="hover:text-primary">
+            Festivals
+          </Link>
           <Link to="/guide" className="hover:text-primary">
             AI Guide
           </Link>

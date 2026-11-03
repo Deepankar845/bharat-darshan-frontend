@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DestinationsRouteImport } from './routes/destinations'
+import { Route as FestivalsRouteImport } from './routes/festivals'
 import { Route as GuideRouteImport } from './routes/guide'
 import { Route as HeritageRouteImport } from './routes/heritage'
 import { Route as ItineraryRouteImport } from './routes/itinerary'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const DestinationsRoute = DestinationsRouteImport.update({
   id: '/destinations',
   path: '/destinations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalsRoute = FestivalsRouteImport.update({
+  id: '/festivals',
+  path: '/festivals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuideRoute = GuideRouteImport.update({
@@ -50,6 +56,7 @@ const ApiChatRoute = ApiChatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/destinations': typeof DestinationsRoute
+  '/festivals': typeof FestivalsRoute
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/destinations': typeof DestinationsRoute
+  '/festivals': typeof FestivalsRoute
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/destinations': typeof DestinationsRoute
+  '/festivals': typeof FestivalsRoute
   '/guide': typeof GuideRoute
   '/heritage': typeof HeritageRoute
   '/itinerary': typeof ItineraryRoute
@@ -75,14 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary' | '/api/chat'
+    | '/'
+    | '/destinations'
+    | '/festivals'
+    | '/guide'
+    | '/heritage'
+    | '/itinerary'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/destinations' | '/guide' | '/heritage' | '/itinerary' | '/api/chat'
+    | '/'
+    | '/destinations'
+    | '/festivals'
+    | '/guide'
+    | '/heritage'
+    | '/itinerary'
+    | '/api/chat'
   id:
     | '__root__'
     | '/'
     | '/destinations'
+    | '/festivals'
     | '/guide'
     | '/heritage'
     | '/itinerary'
@@ -92,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DestinationsRoute: typeof DestinationsRoute
+  FestivalsRoute: typeof FestivalsRoute
   GuideRoute: typeof GuideRoute
   HeritageRoute: typeof HeritageRoute
   ItineraryRoute: typeof ItineraryRoute
@@ -112,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/destinations'
       fullPath: '/destinations'
       preLoaderRoute: typeof DestinationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivals': {
+      id: '/festivals'
+      path: '/festivals'
+      fullPath: '/festivals'
+      preLoaderRoute: typeof FestivalsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guide': {
@@ -148,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DestinationsRoute: DestinationsRoute,
+  FestivalsRoute: FestivalsRoute,
   GuideRoute: GuideRoute,
   HeritageRoute: HeritageRoute,
   ItineraryRoute: ItineraryRoute,
