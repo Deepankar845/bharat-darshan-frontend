@@ -66,7 +66,7 @@ export const destinations: Destination[] = [
     image: jaipur,
     tagline: "The pink city of palaces, bazaars and royal courtyards.",
     days: "3–4 days",
-    bestTime: "October – March",
+    bestTime: "October – March; Jaipur Literature Festival (January)",
     highlights: ["Hawa Mahal", "Amber Fort", "Jantar Mantar", "Johari Bazaar"],
     coordinates: {
       lat: 26.91546,
@@ -86,7 +86,7 @@ export const destinations: Destination[] = [
     image: udaipur,
     tagline: "Lake palaces, marble courtyards and sunsets over Pichola.",
     days: "2–3 days",
-    bestTime: "October – March",
+    bestTime: "October – February; Mewar Festival (March/April)",
     highlights: ["City Palace", "Lake Pichola boat ride", "Jagdish Temple", "Saheliyon ki Bari"],
     coordinates: {
       lat: 24.57872,
@@ -106,7 +106,7 @@ export const destinations: Destination[] = [
     image: jaisalmer,
     tagline: "A living golden fort at the edge of the Thar desert.",
     days: "2–3 days",
-    bestTime: "November – February",
+    bestTime: "November – February; Jaisalmer Desert Festival (February)",
     highlights: ["Sonar Quila", "Sam sand dunes", "Patwon ki Haveli", "Gadisar Lake"],
     coordinates: {
       lat: 27.02642,
@@ -126,7 +126,7 @@ export const destinations: Destination[] = [
     image: varanasi,
     tagline: "Dawn prayers, river ghats and one of the world's oldest cities.",
     days: "2–3 days",
-    bestTime: "November – February",
+    bestTime: "October – March; Dev Deepawali (October/November)",
     highlights: ["Dashashwamedh Ghat", "Ganga Aarti", "Sarnath", "Silk weavers"],
     coordinates: {
       lat: 25.33565,
@@ -146,7 +146,7 @@ export const destinations: Destination[] = [
     image: agra,
     tagline: "Mughal marble at its peak — the Taj at sunrise is worth the alarm.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "October – February; Taj Mahotsav (February)",
     highlights: ["Taj Mahal", "Agra Fort", "Mehtab Bagh", "Fatehpur Sikri"],
     coordinates: {
       lat: 27.17526,
@@ -166,7 +166,7 @@ export const destinations: Destination[] = [
     image: lucknow,
     tagline: "Nawabi manners, labyrinth palaces and the country's finest kebabs.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "October – March; Lucknow Mahotsav (November/December)",
     highlights: ["Bara Imambara", "Bhool Bhulaiyaa", "Rumi Darwaza", "Chikankari bazaars"],
     coordinates: {
       lat: 26.8381,
@@ -186,7 +186,7 @@ export const destinations: Destination[] = [
     image: kerala,
     tagline: "Slow houseboats drifting through green backwater villages.",
     days: "2–3 days",
-    bestTime: "September – March",
+    bestTime: "November – February; Nehru Trophy Boat Race (August)",
     highlights: ["Backwater cruise", "Kumarakom", "Kathakali evening", "Sadya feast"],
     coordinates: {
       lat: 9.50034,
@@ -206,7 +206,7 @@ export const destinations: Destination[] = [
     image: munnar,
     tagline: "Tea hills wrapped in mist, 1,600 metres above the coast.",
     days: "2 days",
-    bestTime: "September – March",
+    bestTime: "September – March; cooler mornings and peak tea views",
     highlights: ["Tea estates", "Eravikulam park", "Top Station view", "Mattupetty dam"],
     coordinates: {
       lat: 10.087,
@@ -226,7 +226,7 @@ export const destinations: Destination[] = [
     image: kochi,
     tagline: "A port city layered with Chinese nets, Dutch lanes and spice godowns.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "December – February; Kochi-Muziris Biennale (December–March)",
     highlights: ["Chinese fishing nets", "Jew Town & synagogue", "Mattancherry Palace", "Fort Kochi caf\u00e9s"],
     coordinates: {
       lat: 9.9679,
@@ -246,7 +246,7 @@ export const destinations: Destination[] = [
     image: madurai,
     tagline: "A temple city that has never gone quiet in 2,500 years.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "January–March or October–November; Pongal (January) / Chithirai (April)",
     highlights: ["Meenakshi Temple", "Thousand Pillar Hall", "Night aarti", "Jigarthanda stalls"],
     coordinates: {
       lat: 9.92612,
@@ -266,7 +266,7 @@ export const destinations: Destination[] = [
     image: mahabalipuram,
     tagline: "Pallava rock-cut temples standing where the surf meets the sand.",
     days: "1–2 days",
-    bestTime: "November – February",
+    bestTime: "November – February; Mahabalipuram Dance Festival (December–January)",
     highlights: ["Shore Temple", "Pancha Rathas", "Arjuna's Penance", "Krishna's Butter Ball"],
     coordinates: {
       lat: 12.6196,
@@ -286,7 +286,7 @@ export const destinations: Destination[] = [
     image: ooty,
     tagline: "Nilgiri tea slopes, colonial bungalows and a toy train through the clouds.",
     days: "2–3 days",
-    bestTime: "March – June",
+    bestTime: "March – June or September–November; Nilgiri summer escape",
     highlights: ["Nilgiri Mountain Railway", "Botanical Gardens", "Doddabetta peak", "Ooty Lake"],
     coordinates: {
       lat: 11.41268,
@@ -306,7 +306,7 @@ export const destinations: Destination[] = [
     image: rohtas,
     tagline: "One of India's largest hill forts, perched 1,500 feet above the Son valley.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "October – February; comfortable fort trekking weather",
     highlights: ["Hathiya Pol gate", "Rohtasan & Aina Mahal", "Phulwari Pond", "Chaulasan Devi shrine"],
     coordinates: {
       lat: 24.62343,
@@ -326,7 +326,7 @@ export const destinations: Destination[] = [
     image: kaimur,
     tagline: "Bihar's largest district — waterfalls, wildlife sanctuaries and windswept plateaus.",
     days: "1–2 days",
-    bestTime: "October – February",
+    bestTime: "October – February; Kaimur forest and hill views",
     highlights: ["Telhar Kund falls", "Karkatgarh falls", "Kaimur Sanctuary", "Gupta Dham caves"],
     coordinates: {
       lat: 25.07635,
@@ -346,7 +346,7 @@ export const destinations: Destination[] = [
     image: mundeshwari,
     tagline: "India's oldest functioning temple — an octagonal shrine from around 625 AD.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "October–March or Shravan fair (July/August)",
     highlights: ["Octagonal sanctum", "Ramgarh hill views", "Ancient inscriptions", "Chaturmukhi Shivalinga"],
     coordinates: {
       lat: 24.9834,
@@ -366,7 +366,7 @@ export const destinations: Destination[] = [
     image: devSurya,
     tagline: "A sun-temple town where Chhath's lamps meet the sacred Surya Kund at dawn.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "October–March; Chhath Puja (October/November)",
     highlights: ["Sun temple sanctum", "Chhath festival ghats", "Deo Fort", "Surya Kund water tank"],
     coordinates: {
       lat: 24.65879,
@@ -386,7 +386,7 @@ export const destinations: Destination[] = [
     image: valmiki,
     tagline: "Bihar's only tiger reserve — Terai forest where tigers, elephants and gharials roam.",
     days: "2–3 days",
-    bestTime: "November – March",
+    bestTime: "November–February; safari season is open November–June",
     highlights: ["Jeep & boat safaris", "Gandak river banks", "Valmikinagar dam", "Nepal border views"],
     coordinates: {
       lat: 27.40608,
@@ -406,7 +406,7 @@ export const destinations: Destination[] = [
     image: rajgir,
     tagline: "Forest-ringed valley of Magadha's ancient capital, hot springs and hilltop stupas.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "October – March; Rajgir Mahotsav (October)",
     highlights: ["Vishwa Shanti Stupa", "Gridhakuta hill", "Hot springs", "Cyclopean walls"],
     coordinates: {
       lat: 25.03,
@@ -426,7 +426,7 @@ export const destinations: Destination[] = [
     image: nalanda,
     tagline: "Ruins of the world's first residential university, drawing scholars for seven centuries.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "October – March; archaeological circuit and pleasant afternoons",
     highlights: ["Great Library ruins", "Sariputta stupa", "Monk cells & courtyards", "Xuanzang Memorial"],
     coordinates: {
       lat: 25.12814,
@@ -446,7 +446,7 @@ export const destinations: Destination[] = [
     image: vaishali,
     tagline: "The world's first republic, where Buddha preached his last sermon and Mahavira was born.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "November–March; Vaishali Mahotsav (Buddha-related dates vary)",
     highlights: ["Ashokan lion pillar", "Relic Stupa", "Bawan Pokhar temple", "Amrapali's lake"],
     coordinates: {
       lat: 25.74917,
@@ -466,7 +466,7 @@ export const destinations: Destination[] = [
     image: bodhGaya,
     tagline: "The holiest spot in Buddhism — the Bodhi tree beneath which the Buddha awakened.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "October – March; Buddha Purnima crowds (May)",
     highlights: ["Mahabodhi Temple", "Bodhi Tree", "Great Buddha statue", "Monasteries of many nations"],
     coordinates: {
       lat: 24.69593,
@@ -486,7 +486,7 @@ export const destinations: Destination[] = [
     image: vishnupad,
     tagline: "Gaya's riverside temple of Vishnu's footprint, hub of the pind daan ancestor rites.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "September–November or February–March; Pitru Paksha (September/October)",
     highlights: ["40cm footprint shrine", "Falgu river ghats", "Pretshila hill", "Bodh Gaya nearby"],
     coordinates: {
       lat: 24.77736,
@@ -506,7 +506,7 @@ export const destinations: Destination[] = [
     image: patna,
     tagline: "Ancient Pataliputra on the Ganga — 2,500 years of empire in one riverside city.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "October – February; Diwali and Chhath Puja season",
     highlights: ["Golghar granary", "Kumhrar Mauryan ruins", "Patna Sahib Gurudwara", "Bihar Museum"],
     coordinates: {
       lat: 25.60932,
@@ -526,7 +526,7 @@ export const destinations: Destination[] = [
     image: pawapuri,
     tagline: "The white marble Jal Mandir floating on a lotus lake where Mahavira attained nirvana.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "October – February; Jain and annual pilgrimage dates vary",
     highlights: ["Jal Mandir lake temple", "Lotus-covered pond", "Jain pilgrimage circuit", "Rajgir nearby"],
     coordinates: {
       lat: 25.09143,
@@ -546,7 +546,7 @@ export const destinations: Destination[] = [
     image: kesaria,
     tagline: "The world's largest Buddhist stupa — a terraced colossus in Champaran's fields.",
     days: "1 day",
-    bestTime: "October – March",
+    bestTime: "October–February; major Shrawani fair (July/August)",
     highlights: ["Terraced stupa climb", "Buddha relic site", "Gandak floodplains", "Champaran history"],
     coordinates: {
       lat: 26.33419,
@@ -566,7 +566,7 @@ export const destinations: Destination[] = [
     image: puri,
     tagline: "Jagannath's seaside town, home of the thundering Rath Yatra chariots.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "October – February; Rath Yatra and temple festival circuit",
     highlights: ["Jagannath Temple", "Rath Yatra", "Puri beach sunrise", "Pipili applique market"],
     coordinates: {
       lat: 19.80761,
@@ -586,7 +586,7 @@ export const destinations: Destination[] = [
     image: konark,
     tagline: "A 13th-century sun temple carved as a chariot with twenty-four stone wheels.",
     days: "1 day",
-    bestTime: "October – February",
+    bestTime: "October – February; Konark Dance Festival (December)",
     highlights: ["Sun Temple wheels", "Nata Mandir", "Chandrabhaga beach", "Konark museum"],
     coordinates: {
       lat: 19.88756,
@@ -606,7 +606,7 @@ export const destinations: Destination[] = [
     image: bhubaneswar,
     tagline: "The temple city — hundreds of Kalinga sandstone spires in one capital.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "October–February; Durga Puja (September/October)",
     highlights: ["Lingaraj Temple", "Udayagiri caves", "Mukteshwar Temple", "Dhauli peace pagoda"],
     coordinates: {
       lat: 20.2603,
@@ -626,17 +626,17 @@ export const destinations: Destination[] = [
     image: chilika,
     tagline: "Asia's largest brackish lagoon — dolphins by day, flamingos by winter.",
     days: "1–2 days",
-    bestTime: "November – February",
+    bestTime: "November – February; peak birding and Makar Sankranti (January)",
     highlights: ["Irrawaddy dolphins", "Mangalajodi birding", "Satapada boats", "Kalijai island shrine"],
     coordinates: {
-      lat: 19.68532,
-      lng: 85.25037,
+      lat: 19.6928,
+      lng: 85.3934,
     },
     nearestAirport: "Biju Patnaik International Airport Bhubaneswar (BBI), 100 km",
     nearestRailway: "Balugaon Railway Station (BALU)",
     elevation: "2 m (7 ft)",
     description: "Chilika Lake is the largest brackish water lagoon with estuarine characteristics along the east coast of Indian sub-continent in Asia and second largest coastal lagoon in the world, its area ranges from about 900 to 11,165 sq km during summers and monsoon respectively. It is spread over the Puri, Khordha and Ganjam districts of Odisha state on the east coast of India, at the mouth of the Daya River, flowing into the Bay of Bengal.",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.68532,85.25037",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.6928,85.3934",
   },
   {
     slug: "mumbai",
@@ -646,7 +646,7 @@ export const destinations: Destination[] = [
     image: mumbai,
     tagline: "Art-deco seafronts, island caves and a city that genuinely never stops.",
     days: "2–3 days",
-    bestTime: "November – February",
+    bestTime: "November – February; Ganesh Chaturthi (August/September)",
     highlights: ["Gateway of India", "Marine Drive", "Elephanta Caves", "Colaba & Kala Ghoda"],
     coordinates: {
       lat: 19.07611,
@@ -666,7 +666,7 @@ export const destinations: Destination[] = [
     image: ellora,
     tagline: "Temples and monasteries cut straight out of basalt cliffs over centuries.",
     days: "2 days",
-    bestTime: "October – March",
+    bestTime: "October – February; Ellora Ajanta Festival season (December/January)",
     highlights: ["Kailasa Temple", "Ajanta murals", "Buddhist viharas", "Daulatabad fort"],
     coordinates: {
       lat: 20.0268,
@@ -686,7 +686,7 @@ export const destinations: Destination[] = [
     image: lonavala,
     tagline: "Monsoon-green Sahyadri ghats, waterfalls and hillfort ridgelines.",
     days: "1–2 days",
-    bestTime: "June – September",
+    bestTime: "June – September for monsoon waterfalls; October–February for clear weather",
     highlights: ["Bhushi dam", "Tiger's Leap", "Karla caves", "Rajmachi fort trek"],
     coordinates: {
       lat: 18.75037,
@@ -706,17 +706,17 @@ export const destinations: Destination[] = [
     image: kutch,
     tagline: "A white salt horizon that glows under the full moon of Rann Utsav.",
     days: "2–3 days",
-    bestTime: "November – February",
+    bestTime: "November – February; Rann Utsav and full-moon nights",
     highlights: ["White Rann full moon", "Rann Utsav tents", "Bhuj craft villages", "Kalo Dungar viewpoint"],
     coordinates: {
-      lat: 24.08639,
-      lng: 70.63778,
+      lat: 23.7337,
+      lng: 69.8597,
     },
     nearestAirport: "Bhuj Airport (BHJ), 80 km",
     nearestRailway: "Bhuj Railway Station (BHUJ), 82 km",
     elevation: "15 m (49 ft)",
     description: "The Great Rann of Kutch is a salt marsh in the Thar Desert in the Kutch District of Gujarat, India. It is about 7500\u00a0km2 in area and is reputed to be one of the largest salt deserts in the world. This area has been inhabited by the Kutchi people.",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=24.08639,70.63778",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=23.7337,69.8597",
   },
   {
     slug: "gir",
@@ -726,17 +726,17 @@ export const destinations: Destination[] = [
     image: gir,
     tagline: "The last wild home of the Asiatic lion, in dry teak forest.",
     days: "2 days",
-    bestTime: "December – March",
+    bestTime: "December – March; park safari season typically October–June",
     highlights: ["Lion safari", "Devalia interpretation zone", "Kamleshwar dam", "Somnath nearby"],
     coordinates: {
-      lat: 21.13556,
-      lng: 70.79667,
+      lat: 21.1403,
+      lng: 70.7947,
     },
     nearestAirport: "Keshod Airport (IXK), 40 km / Rajkot (RAJ), 160 km",
     nearestRailway: "Sasan Gir (SASN) / Junagadh Junction (JND), 60 km",
     elevation: "156 m (512 ft)",
     description: "Gir National Park and Wildlife Sanctuary, also known as Sasan Gir, is a national park and wildlife sanctuary in Gujarat, India. It was established in 1965 in the erstwhile Nawab of Junagarh's private hunting area, with a total area of 1,410.30\u00a0km2 (544.52\u00a0sq\u00a0mi), of which 258.71\u00a0km2 (99.89\u00a0sq\u00a0mi) is fully protected as a national park and 1,151.59\u00a0km2 (444.63\u00a0sq\u00a0mi) as wildlife sanctuary. It is part of the Khathiar-Gir dry deciduous forests ecoregion.",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=21.13556,70.79667",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=21.1403,70.7947",
   },
   {
     slug: "dwarka",
@@ -746,7 +746,7 @@ export const destinations: Destination[] = [
     image: dwarka,
     tagline: "Krishna's coastal kingdom, one of the four sacred Char Dham towns.",
     days: "1–2 days",
-    bestTime: "October – March",
+    bestTime: "October–March; Janmashtami (August) and Shardiya festival dates vary",
     highlights: ["Dwarkadhish Temple", "Bet Dwarka boat", "Rukmini Devi Temple", "Gomti Ghat aarti"],
     coordinates: {
       lat: 22.23777,
@@ -776,8 +776,8 @@ export const heritage: Heritage[] = [
     place: "Khajuraho, Hampi, Belur",
     blurb:
       "Stone shikharas, carved mandapas and sculpted friezes that turned devotion into geometry.",
-    coordinates: { lat: 22.2378, lng: 68.9675 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=22.2378,68.9675",
+    coordinates: { lat: 24.8318, lng: 79.9199 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Khajuraho%2C+Madhya+Pradesh%2C+India%4024.8318,79.9199",
   },
   {
     title: "Mughal Gardens & Tombs",
@@ -785,8 +785,8 @@ export const heritage: Heritage[] = [
     place: "Agra, Delhi, Srinagar",
     blurb:
       "Charbagh symmetry, marble inlay and water channels designed as an earthly paradise.",
-    coordinates: { lat: 27.1751, lng: 78.0421 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=27.1751,78.0421",
+    coordinates: { lat: 27.17515, lng: 78.04214 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Taj+Mahal%2C+Agra%2C+India%4027.17515,78.04214",
   },
   {
     title: "Classical Dance",
@@ -794,8 +794,8 @@ export const heritage: Heritage[] = [
     place: "Tamil Nadu, Odisha, Manipur",
     blurb:
       "Bharatanatyam, Odissi and Manipuri — storytelling through mudras, rhythm and eyes.",
-    coordinates: { lat: 19.8876, lng: 86.0945 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=19.8876,86.0945",
+    coordinates: { lat: 9.9252, lng: 78.1198 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Madurai%2C+Tamil+Nadu%2C+India%409.9252,78.1198",
   },
   {
     title: "Textile Crafts",
@@ -803,8 +803,8 @@ export const heritage: Heritage[] = [
     place: "Kutch, Varanasi, Bhuj",
     blurb:
       "Bandhani tie-dye, Banarasi brocade and block printing passed down through families.",
-    coordinates: { lat: 23.242, lng: 69.6669 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=23.242,69.6669",
+    coordinates: { lat: 23.0225, lng: 72.5714 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ahmedabad%2C+Gujarat%2C+India%4023.0225,72.5714",
   },
   {
     title: "Festivals of Light & Colour",
@@ -812,8 +812,8 @@ export const heritage: Heritage[] = [
     place: "Pan-India",
     blurb:
       "Diwali lamps, Holi pigments, Pongal harvests and Durga Puja pandals across the calendar.",
-    coordinates: { lat: 25.3356, lng: 83.0076 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=25.3356,83.0076",
+    coordinates: { lat: 25.317645, lng: 82.973914 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Varanasi%2C+Uttar+Pradesh%2C+India%4025.317645,82.973914",
   },
   {
     title: "Regional Cuisines",
@@ -821,8 +821,8 @@ export const heritage: Heritage[] = [
     place: "Every state",
     blurb:
       "From Awadhi dum cooking to Chettinad spice blends — a different grammar in every region.",
-    coordinates: { lat: 26.8381, lng: 80.9346 },
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=26.8381,80.9346",
+    coordinates: { lat: 26.846693, lng: 80.946166 },
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Lucknow%2C+Uttar+Pradesh%2C+India%4026.846693,80.946166",
   },
 ];
 

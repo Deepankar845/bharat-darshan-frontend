@@ -106,7 +106,7 @@ export function GoogleMapModal({
   )}`;
 
   const copyCoordinates = () => {
-    const text = `${coordinates.lat.toFixed(4)}° N, ${coordinates.lng.toFixed(4)}° E`;
+    const text = `${coordinates.lat}° N, ${coordinates.lng}° E`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     toast.success("Coordinates copied to clipboard!");
@@ -167,7 +167,7 @@ export function GoogleMapModal({
               >
                 <Navigation className="size-3 text-primary" />
                 <span>
-                  {coordinates.lat.toFixed(4)}° N, {coordinates.lng.toFixed(4)}° E
+                  {coordinates.lat}° N, {coordinates.lng}° E
                 </span>
                 {copied ? <Check className="size-3 text-emerald-500" /> : <Copy className="size-3 text-muted-foreground" />}
               </button>

@@ -76,7 +76,7 @@ function Heritage() {
                     title="View region on map"
                   >
                     <Navigation className="size-3" />
-                    {h.coordinates.lat.toFixed(2)}°N, {h.coordinates.lng.toFixed(2)}°E
+                    {h.coordinates.lat}°N, {h.coordinates.lng}°E
                     <ExternalLink className="size-2.5 opacity-70" />
                   </a>
                 )}

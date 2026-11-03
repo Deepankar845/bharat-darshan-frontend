@@ -164,7 +164,7 @@ function Index() {
                     title="Open exact coordinates in Google Maps"
                   >
                     <Navigation className="size-3 text-gold" />
-                    {d.coordinates.lat.toFixed(2)}°N, {d.coordinates.lng.toFixed(2)}°E
+                    {d.coordinates.lat}°N, {d.coordinates.lng}°E
                     <ExternalLink className="size-2.5 opacity-70" />
                   </a>
                 </div>

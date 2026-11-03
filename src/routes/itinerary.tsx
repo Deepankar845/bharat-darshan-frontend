@@ -100,7 +100,7 @@ function Itinerary() {
           <div className="mt-3 rounded-xl bg-secondary/40 p-3 text-xs text-muted-foreground">
             <div className="flex items-center justify-between font-mono">
               <span>
-                {destination.coordinates.lat.toFixed(4)}° N, {destination.coordinates.lng.toFixed(4)}° E
+                {destination.coordinates.lat}° N, {destination.coordinates.lng}° E
               </span>
               <a
                 href={destination.mapUrl}

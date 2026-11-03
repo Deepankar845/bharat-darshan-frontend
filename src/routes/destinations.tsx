@@ -166,7 +166,7 @@ function Destinations() {
                 >
                   <Navigation className="size-3.5 text-primary" />
                   <span>
-                    {d.coordinates.lat.toFixed(4)}° N, {d.coordinates.lng.toFixed(4)}° E
+                    {d.coordinates.lat}° N, {d.coordinates.lng}° E
                   </span>
                   <ExternalLink className="size-3 text-muted-foreground" />
                 </a>
@@ -246,7 +246,7 @@ function Destinations() {
                       <p>{d.description}</p>
                       <div className="mt-3 flex items-center justify-between pt-2 border-t border-border/50 text-[11px]">
                         <span className="font-mono text-muted-foreground/80">
-                          Coordinates: {d.coordinates.lat}, {d.coordinates.lng}
+                          Exact coordinates: {d.coordinates.lat}, {d.coordinates.lng}
                         </span>
                         <a
                           href={d.mapUrl}
