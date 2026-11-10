@@ -10,6 +10,48 @@ const links = [
   { to: "/festivals", label: "Festivals" },
 ] as const;
 
+const contactEmails = [
+  "deepankar.k24bcs@srisriuniversity.edu.in",
+  "akankhya.k24bcs@srisriuniversity.edu.in",
+];
+
+function ContactUs({ mobile = false }: { mobile?: boolean }) {
+  return (
+    <details className={mobile ? "" : "group relative"}>
+      <summary
+        className={
+          mobile
+            ? "block cursor-pointer py-3 text-sm text-muted-foreground"
+            : "cursor-pointer list-none rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        }
+      >
+        Contact Us
+      </summary>
+      <div
+        className={
+          mobile
+            ? "pb-3 pl-3"
+            : "absolute right-0 top-full z-50 mt-2 w-80 max-w-[calc(100vw-2.5rem)] rounded-xl border border-border bg-background p-4 shadow-lift"
+        }
+      >
+        <p className="mb-2 text-sm font-medium text-foreground">Email us</p>
+        <ul className="space-y-2">
+          {contactEmails.map((email) => (
+            <li key={email}>
+              <a
+                href={`mailto:${email}`}
+                className="break-all text-sm text-muted-foreground hover:text-primary"
+              >
+                {email}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -45,6 +87,7 @@ export function SiteHeader() {
           >
             Plan a trip
           </Link>
+          <ContactUs />
         </nav>
 
         <button
@@ -71,6 +114,7 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
+          <ContactUs mobile />
         </nav>
       )}
     </header>
