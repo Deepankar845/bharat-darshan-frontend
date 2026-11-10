@@ -13,6 +13,8 @@ const links = [
 const contactEmails = [
   "deepankar.k24bcs@srisriuniversity.edu.in",
   "akankhya.k24bcs@srisriuniversity.edu.in",
+  "punya.k24bcs@srisriuniversity.edu.in",
+  "nandini.s24bcs@srisriuniversity.edu.in",
 ];
 
 function ContactUs({ mobile = false }: { mobile?: boolean }) {
