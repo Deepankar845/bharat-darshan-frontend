@@ -64,9 +64,7 @@ export function SiteHeader() {
             alt="Bharat Darshan"
             className="size-11 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="font-display text-xl leading-none tracking-tight">
-            Bharat Darshan
-          </span>
+          <span className="font-display text-xl leading-none tracking-tight">Bharat Darshan</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
